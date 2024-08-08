@@ -1,0 +1,174 @@
+// Breadcrumb Section 
+
+.about-bg {
+    background-image: url(../img/breadcrumb/about.jpg);
+}
+
+.service-bg {
+    background-image: url(../img/breadcrumb/services.jpg);
+}
+
+.team-bg {
+    background-image: url(../img/breadcrumb/team.jpeg);
+}
+
+.process-bg {
+    background-image: url(../img/breadcrumb/process.jpg);
+}
+
+.faq-bg {
+    background-image: url(../img/breadcrumb/faq.jpg);
+}
+
+.price-bg {
+    background-image: url(../img/breadcrumb/price.jpg);
+}
+
+.standard_courier {
+    background-image: url(../img/breadcrumb/standard_courier.jpg);
+}
+
+.express_courier {
+    background-image: url(../img/breadcrumb/express_courier.jpg);
+}
+
+.pallet_courier {
+    background-image: url(../img/breadcrumb/pallet_courier.jpg);
+}
+
+.overnight_courier {
+    background-image: url(../img/breadcrumb/overnight_courier.jpg);
+}
+
+.international_courier {
+    background-image: url(../img/breadcrumb/internatinal_courier.jpg);
+}
+
+.warehousing {
+    background-image: url(../img/breadcrumb/warehousing.jpg);
+}
+
+.wind_turbine {
+    background-image: url(../img/breadcrumb/wind_turbine.jpg);
+}
+
+.hydropower_plant {
+    background-image: url(../img/breadcrumb/hydropower_plant.jpg);
+}
+
+.solar_development {
+    background-image: url(../img/breadcrumb/solar_development.jpg);
+}
+
+.battery_backup {
+    background-image: url(../img/breadcrumb/battery_backup.jpg);
+}
+
+.project-bg {
+    background-image: url(../img/breadcrumb/project.jpg);
+}
+
+.project-detail {
+    background-image: url(../img/breadcrumb/project-details.jpg);
+}
+
+.blog-bg {
+    background-image: url(../img/breadcrumb/blog-bg.jpeg);
+}
+
+.blog-details {
+    background-image: url(../img/breadcrumb/blog-details.jpg);
+}
+
+.contact-bg {
+    background-image: url(../img/breadcrumb/contact.jpg);
+}
+
+.quote-bg {
+    background-image: url(../img/breadcrumb/quote.jpg);
+}
+
+.price-bg {
+    background-image: url(../img/breadcrumb/pricing.jpg);
+}
+
+.blog-bg {
+    background-image: url(../img/breadcrumb/blog.jpg);
+}
+
+.products-bg {
+    background-image: url(../img/breadcrumb/products.jpg);
+}
+
+.cart-bg {
+    background-image: url(../img/breadcrumb/cart.jpg);
+}
+
+.checkout-bg {
+    background-image: url(../img/breadcrumb/checkout.jpg);
+}
+
+.breadcrumb-area {
+    height: 500px;
+    background-size: cover;
+    background-position: center bottom;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+	z-index: 1;
+	
+	& .breadcrumb-title h1 {
+		font-size: 70px;
+		font-weight: 600;
+        letter-spacing: 1px;
+        color: $white;
+        margin: 0;
+        
+        @media #{$md} {
+            font-size: 60px;
+           }
+    
+           @media #{$sm} {
+            font-size: 50px;
+           }
+
+           @media #{$xs} {
+            font-size: 50px;
+           }
+    }
+
+    h6 {
+        color: $heading_color;
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-top: 25px;
+        a {
+            color: #fff;
+        }
+    }
+
+    p {
+        color: $white;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+	
+}
+
+.breadcrumb-meta {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+    ul {
+        margin: 0;
+    }
+}
+
+
+
+
+

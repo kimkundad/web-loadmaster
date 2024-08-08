@@ -1,0 +1,157 @@
+
+.footer-area {
+	background: rgb(8, 39, 62);
+	color: #fff;
+    h6 {
+        font-size: 20px;
+        font-weight: 600;
+        color: $theme_color;
+        margin: 20px 0;
+    }
+    p {
+        font-size: 15px;
+        color: #fff;
+        margin-top: 14px;
+        margin-left: 0;
+    }
+    ul li a {
+        display: block;
+        font-size: 15px;
+        font-weight: 400;
+        color: #d7d7d7;
+        padding: 12px 0;
+        &:hover {
+            color: $theme_color;
+        }
+    }
+
+    @media #{$xs} {
+        text-align: center;
+    }
+
+    .contact-info{
+        margin-top: 30px;
+    }
+
+}
+
+
+.contact-info p {
+    font-size: 15px;
+	margin-bottom: 10px;
+    color: #fff;
+    @media #{$lg} {
+        font-size: 14px;    
+    }
+}
+
+.subscribe-form {
+	position: relative;
+    button {
+        font-size: 16px;
+        line-height: 13px;
+        color: #fff;
+        -webkit-transition: all 0.3s ease-out 0s;
+        transition: all 0.3s ease-out 0s;
+        border-radius: 0px 10px 10px 0px;
+        border: 0;
+        cursor: pointer;
+    }
+    input {
+        margin: 0;
+        background: #fff;
+        border-radius: 12px 0px 0px 12px;
+        border: 0;
+        &::placeholder {
+            color: #797A7E;
+            font-size: 14px;
+        }
+    }
+}
+
+.subscribe-form form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.footer-up {
+	padding: 60px 0;
+	padding-top: 80px;
+    .social-area i {
+        color: #77848f;
+        font-size: 21px;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+}
+
+
+.footer-bottom {
+    background:#062134;
+	padding: 15px 0;
+
+    p {
+        font-size: 14px;
+        color:#77848f;
+        margin-bottom: 0;
+    }
+    a {
+        font-size: 15px;
+        color: #77848f;
+        font-weight: 400;
+    }
+    p.privacy {
+        text-align: center;        
+    }
+    
+}
+
+p.privacy a {
+    position: relative;
+    z-index: 1;
+    margin: 0 10px;
+}
+
+p.privacy a:hover {
+    text-decoration: underline;
+}
+
+p.privacy a:not(:last-of-type)::after {
+    position: absolute;
+    content: "|";
+    display: inline-block;
+    padding: 0 10px;
+}
+
+
+.footer-bottom .social-area i {
+    font-size: 20px;
+    color: #77848f;
+    margin-right: 14px;
+}
+
+.copyright-line {
+    text-align: left;
+
+    @media #{$md, $xs}{
+        text-align: center;
+    }
+    
+  }
+
+.social-area {
+    text-align: right;
+
+    @media #{$md, $xs}{
+        text-align: center;
+        margin-top: 5px;
+    }
+    
+  }
+
+
+
+
+

@@ -1,0 +1,88 @@
+// Expertise Section 
+
+.progress-bar-area {
+  margin-top: 35px;
+}
+
+.single-bar-item {
+  padding-top: 7px;
+  h6 {
+    font-size: 18px;
+    margin-bottom: 7px;
+    @media #{$xs}{
+      font-size: 16px;
+    }
+  }
+  h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+}
+
+.barfiller .fill {
+  background: $theme_color !important;
+  border-radius: 8px;
+}
+
+.expertise-content {
+  padding: 100px 95px;
+
+  @media #{$lg} {
+    padding: 90px 60px;
+  }
+
+  @media #{$md} {
+    padding: 100px 50px;
+  }
+
+  @media #{$xs} {
+    padding: 60px 40px;
+  }
+}
+
+.expertise-img {
+  background-image: url(../img/expertise.jpg);
+  background-size: cover;
+  height: 50%;
+  width: 100%;
+
+  @media #{$md} {
+    display: none;
+  }
+
+  @media #{$xs} {
+    height: 350px;
+  }
+}
+
+.subscribed-wrap {
+  height: 50%;
+  background: $theme_color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media #{$md} {
+    height: 350px;
+    padding: 60px;
+  }
+
+  @media #{$xs} {
+    height: 350px;
+    padding: 40px;
+  }
+  h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    @media #{$xs}{
+      font-size: 32px;
+    }
+  }
+  button[type=submit] {
+    background: #0D232E;
+  }
+}
+
+
+

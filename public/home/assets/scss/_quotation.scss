@@ -1,0 +1,157 @@
+.quotation-area {
+    background-image: url(../img/contact_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(270deg, rgb(9 32 50) 50%, rgba(8, 40, 64, 0.86) 100%);
+        z-index: -1;
+    }
+}
+
+
+
+ul.contact-list {
+    margin-top: 30px;
+}
+
+ul.contact-list li {
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 40px;
+
+    @media #{$md}{
+        margin-right: 30px;
+    }
+
+    @media #{$xs}{
+        display: block;
+    }
+}
+
+.quotation-page ul.contact-list li {
+    color: inherit;
+    margin-bottom: 15px;
+
+    @media #{$md}{
+        margin-right: 30px;
+    }
+}
+
+ul.contact-list li i {
+    font-size: 14px;
+    font-weight: 600;
+    background: #0984E3;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contact-btn .main-btn {
+    margin-right: 20px;
+    margin-top: 20px;    
+}
+
+.contact-btn .main-btn.white:hover{
+    color: #fff;
+}
+
+// quotation box
+
+.quotation-wrap {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+
+    @media #{$lg}{
+       padding: 20px;
+    }
+
+    @media #{$md}{
+       margin-top: 40px;
+    }
+
+    @media #{$xs}{
+       padding: 25px;
+       margin-top: 40px;
+    }
+}
+
+.quotation-page .quotation-wrap {
+    box-shadow: 0px 5px 83px 0px rgb(9 29 62 / 15%);
+}
+
+.quotation-inner h5 {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0 30px;
+    @media #{$lg}{
+        margin: 10px 0;
+    }
+}
+
+.quotation-desc {
+    font-size: 15px;
+    line-height: 25px;
+
+    @media #{$lg}{
+        font-size: 14px;
+    }
+}
+
+label.form-label {
+    color: #1A2A36;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+    @media #{$lg}{
+        margin-bottom: 5px;
+    }
+}
+
+.nice-select.form-control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nice-select.open .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact-icon img {
+    max-width: initial;
+}
+
+.contact-info p {
+    font-size: 15px;
+    line-height: 24px;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.contact-info a {
+    color: #0984E3;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.contactForm .main-btn {
+    margin-top: 15px;
+}

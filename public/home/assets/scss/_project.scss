@@ -1,0 +1,265 @@
+// Project # 02
+
+.project-wrap-2 .project-single:hover {
+    box-shadow: none;
+}
+
+.project-wrap-2 .project-content {
+    padding: 30px 15px 40px;
+}
+
+
+.project-content-2 {
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	width: 90%;
+    margin: 5%;
+    border-radius: 7px;
+	background-color: $theme_color;
+    color: #fff;
+	padding: 25px;
+	-webkit-transform: translateY(10px);
+	-ms-transform: translateY(10px);
+	transform: translateY(10px);
+	-webkit-transition: -webkit-transform .5s linear;
+	transition: -webkit-transform .5s linear;
+	-o-transition: transform .5s linear;
+	transition: transform .5s linear;
+	transition: transform .5s linear, -webkit-transform .5s linear;
+	-webkit-transition: -webkit-transform .45s cubic-bezier(.4, 0, .2, 1);
+	transition: -webkit-transform .45s cubic-bezier(.4, 0, .2, 1);
+	-o-transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+	transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+	transition: transform .45s cubic-bezier(.4, 0, .2, 1), -webkit-transform .45s cubic-bezier(.4, 0, .2, 1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.project-single:hover .project-content-2 {
+	-webkit-transform: translateY(-10px);
+	-ms-transform: translateY(-10px);
+	transform: translateY(-10px);
+	-webkit-transition-delay: .15s;
+	-o-transition-delay: .15s;
+	transition-delay: .15s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.project-content-2 h4 a{
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.project-wrap-2 .owl-dots button.owl-dot span {
+    width: 35px;
+    height: 3px;
+    background: #6b7475;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.project-wrap-2 .owl-dots button.owl-dot.active span {
+    width: 35px;
+    height: 6px;
+    background: $theme_color;
+}
+
+.project-wrap-2 .owl-dots {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.project-single {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.project-single .project-content {
+	position: absolute;
+	bottom: 0px;
+	left: 20px;
+	right: 20px;
+	background: #fff;
+	padding: 20px;
+	transform: translateY(50%);
+	-webkit-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.10);
+    border-radius: 7px;
+    @media #{$md} {
+        padding: 16px;
+       }
+}
+
+.project-content span a {
+    background: #0984e3;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    position: relative;
+    padding: 2px 8px;
+    border-radius: 5px;
+ }
+
+.project-content h4 a {
+	font-size: 24px;
+	line-height: 34px;
+	margin: 20px 0;
+}
+
+.project-content a.read-more {
+	position: absolute;
+	bottom: 30px;
+	left: 20px;
+	opacity: 0;
+	transform: translateY(50%);
+	transition: all .4s ease-in-out;
+	text-transform: uppercase;
+	font-size: 15px;
+    color: $theme_color;
+}
+
+
+.project-single:hover .project-content span a {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+
+.project-single:hover .project-content h4 a {
+	transform: translateY(-40px);
+    color: #444;
+}
+
+.project-single:hover .project-content a.read-more {
+	transform: translateY(0);
+	opacity: 1;
+	-webkit-transition-delay: .4s;
+	transition-delay: .4s;
+}
+
+.project-solutions-list {
+    margin-bottom: 30px;
+  }
+
+// Project # 01
+
+.single-project-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  
+  .single-project-wrapper:hover .project-details {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.7s ease;
+    transition-delay: 50ms;
+    transition-duration: 0.5s;
+  }
+  
+  .single-project-wrapper:hover .project-bg {
+    transform: scale(1.07, 1.07);
+  }
+
+  .project-bg {
+    transition: all 0.5s ease;
+    transform: scale(1);
+  }
+  
+  .project-details {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    transform: translateX(-101%);
+    transition: all ease 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .project-details span {
+    background: #fff;
+    padding: 10px;
+    border-radius: 0;
+    font-size: 16px;
+    color: $theme_color;
+  }
+  .project-details h5 {
+    background: #fff;
+    display: block;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
+  
+  .single-project-wrapper:hover .project-details {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.7s ease;
+    transition-delay: 50ms;
+    transition-duration: 0.5s;
+  }
+  
+  .single-project-wrapper:hover .project-bg {
+    transform: scale(1.07);
+  }
+  
+.project-slider .owl-nav button.owl-prev,
+.project-slider .owl-nav button.owl-next {
+  border: 1px solid #ddd;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.project-slider .owl-nav button.owl-prev:hover,
+.project-slider .owl-nav button.owl-next:hover {
+  background: $theme_color;
+  border-color: $theme_color;
+  color: #fff;
+}
+
+.project-slider .owl-nav {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  display: flex;
+}
+
+.project-slider .owl-nav i {
+  font-size: 20px;
+}
+
+.project-slider .owl-dots button.owl-dot span {
+    width: 35px;
+    height: 3px;
+    background: #6b7475;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  
+  .project-slider .owl-dots button.owl-dot.active span {
+    width: 35px;
+    height: 6px;
+    background: #0984e3;
+  }
+  
+  .project-slider .owl-dots {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  
+.project-section .section-title h2 br {
+  @media #{$xs}{
+    display: none;
+  }
+}

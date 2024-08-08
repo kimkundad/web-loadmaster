@@ -1,0 +1,239 @@
+.feature-area {
+    background-image: url(../img/feature-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    position: relative;
+    z-index: 1;  
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(270deg, rgb(9 32 50) 50%, rgba(8, 40, 64, 0.86) 100%);
+        z-index: -1;
+    }
+}
+
+
+.feature-btn .main-btn {    
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.feature-item-wrap {
+    margin-top: 30px;
+}
+
+.feature-single {
+    background: #fff;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 7px;
+    position: relative;
+    height: 320px;
+
+    @media #{$md} {
+        margin: 0px;
+    }
+
+    @media #{$xs} {
+        margin: 0px;
+    }
+
+    i {
+        background: $theme_color;
+        padding: 10px;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 17px;
+    }
+}
+
+.feature-title h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0;
+    @media #{$md}{
+        font-size: 18px;
+    }
+}
+
+.feature-desc p {
+    color: #9b9b9b;
+    font-size: 15px;
+    line-height: 20px;
+
+    @media #{$lg} {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+.video-section {
+    background-image: url(../img/video-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
+    margin-bottom: -85px;
+
+    @media #{$md}{
+        margin-top: 50px;
+    }
+
+    @media #{$xs}{
+        margin-top: 50px;
+    }
+}
+
+.popup-video {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+
+.video-section i {
+    font-size: 30px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.popup-video span {
+    color: #fff;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.feature-item-wrap .owl-dots button.owl-dot span {
+    width: 35px;
+    height: 3px;
+    background: #6b7475;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.feature-item-wrap .owl-dots button.owl-dot.active span {
+    width: 35px;
+    height: 6px;
+    background: $theme_color;
+}
+
+.feature-item-wrap .owl-dots {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.more-feature {
+    margin-top: 0;
+
+    @media #{$xs} {
+        margin-top: -40px;
+    }
+}
+
+.more-feature p {
+    font-size: 17px;
+}
+
+.more-feature p a {
+    color: #0984E3;
+}
+
+.more-feature .main-btn{
+    width: 200px;
+}
+
+// feature # 02
+
+.feature-area.feat-2 {
+    height: 300px;
+    position: relative;
+    z-index: 1;
+
+    @media #{$xs} {
+        height: 900px;
+    }
+
+    @media #{$sm} {
+        height: 500px;
+    }
+}
+
+.feature-area.feat-2:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(300deg, rgb(11, 122, 206) 50%, rgb(13 130 217 / 86%) 100%);
+    z-index: -1;
+}
+
+.feature-wrap {
+    position: relative;
+    margin-top: -70px;
+    z-index: 2;
+    transform: translateY(-80px);
+    overflow: hidden;
+    border-radius: 7px;
+    @media #{$md} {
+		margin-top: -30px;
+	}
+}
+
+.feature-area.feat-2 .feature-single{
+    height: 100%;
+    padding: 35px;
+    border-right: 1px solid #eee;
+    border-radius: 0;
+
+    @media #{$xs} {
+		padding: 30px;
+        margin: 0 25px;
+        border-bottom: 1px solid #eee;
+	}
+
+    @media #{$sm} {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+	}
+}
+
+
+.more-features {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    @media #{$xs} {
+        flex-direction: column;
+    }
+}
+
+.more-features p {
+    color: #fff;
+    margin: 0;
+    @media #{$xs} {
+        margin-bottom: 20px;
+    }
+}
+
+.more-features .main-btn {
+    margin: 0px 30px;
+}
+
