@@ -38,7 +38,7 @@
 
     <style>
     .hero-area-bg-6 {
-    background-image: url({{ url('img/slider/slide-6.jpg?v2') }});
+    background-image: url({{ url('home/assets/img/slider/slide-6.jpg?v2') }});
 }
 </style>
 </head>
