@@ -35,6 +35,13 @@
 
     <!-- jquery -->
     <script src="{{ url('home/assets/js/jquery-1.12.4.min.js') }}"></script>
+
+    <style>
+
+    .hero-area-bg-6 {
+    background-image: url({{ url('img/slider/slide-6.jpg?v2') }});
+}
+</style>
 </head>
 
 <body>
