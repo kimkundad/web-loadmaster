@@ -29,7 +29,7 @@
     <!-- Nice Select CSS -->
     <link href="{{ url('home/assets/css/nice-select.css') }}" rel="stylesheet" >
     <!-- Style CSS -->
-    <link href="{{ url('home/assets/css/style.css') }}" rel="stylesheet" >
+    <link href="{{ url('home/assets/css/style.css') }}?v{{time()}}" rel="stylesheet" >
     <!-- Responsive CSS -->
     <link href="{{ url('home/assets/css/responsive.css') }}" rel="stylesheet" >
 
