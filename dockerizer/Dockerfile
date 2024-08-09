@@ -9,7 +9,7 @@ RUN composer install --no-interaction --no-scripts
 COPY . ./
 
 # Ensure directories exist and set permissions
-RUN mkdir -p /app/storage/logs /app/bootstrap/cache
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache /app /app/storage/logs
-RUN chmod -R 775 /app/storage /app/bootstrap/cache
-RUN chmod o+w /app/storage/framework/views
+RUN mkdir -p /app/storage/logs /app/bootstrap/cache \
+    && chown -R www-data:www-data /app/storage /app/bootstrap/cache /app \
+    && chmod -R 775 /app/storage /app/bootstrap/cache \
+    && chmod -R 775 /app/storage/framework/views
