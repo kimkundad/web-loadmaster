@@ -6,10 +6,16 @@ WORKDIR /app
 COPY composer.json composer.lock ./
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --no-interaction --no-scripts
-COPY . ./
 
+COPY . ./
+RUN composer dump-autoload
 # Ensure directories exist and set permissions
 RUN mkdir -p /app/storage/logs /app/bootstrap/cache \
     && chown -R www-data:www-data /app/storage /app/bootstrap/cache /app \
     && chmod -R 775 /app/storage /app/bootstrap/cache \
-    && chmod -R 775 /app/storage/framework/views
+    && chmod o+w /app/storage/framework/sessions \
+    && chmod o+w /app/storage/framework/views
+    # composer dump-autoload
+
+    # chmod o+w /app/storage/framework/sessions
+    # chmod o+w /app/storage/framework/views
