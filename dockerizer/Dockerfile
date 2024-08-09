@@ -7,3 +7,5 @@ COPY composer.json composer.lock ./
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --no-interaction --no-scripts
 COPY . ./
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+RUN chmod -R 775 /app/storage /app/bootstrap/cache
