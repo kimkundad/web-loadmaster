@@ -17,8 +17,7 @@ RUN composer install --no-interaction --no-scripts --no-progress --prefer-dist
 COPY . .
 
 # Ensure storage and cache directories have the correct permissions
-RUN mkdir -p /app/storage/logs /app/bootstrap/cache \
-    && chown -R www-data:www-data /app/storage /app/bootstrap/cache \
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache \
     && chmod -R 775 /app/storage /app/bootstrap/cache
 
 # Optionally run additional commands, e.g., migrations or caching
