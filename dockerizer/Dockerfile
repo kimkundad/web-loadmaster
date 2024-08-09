@@ -10,5 +10,5 @@ COPY . ./
 
 # Ensure directories exist and set permissions
 RUN mkdir -p /app/storage/logs /app/bootstrap/cache
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache /app
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache /app /app/storage/logs
 RUN chmod -R 775 /app/storage /app/bootstrap/cache
