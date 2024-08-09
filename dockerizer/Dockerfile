@@ -16,8 +16,6 @@ RUN composer install --no-interaction --no-scripts --no-progress --prefer-dist
 # Copy the rest of the application code
 COPY . .
 
-# Ensure storage and cache directories have the correct permissions
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 
 # Optionally run additional commands, e.g., migrations or caching
 # RUN php artisan migrate --force
