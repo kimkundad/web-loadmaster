@@ -8,7 +8,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --no-interaction --no-scripts
 COPY . ./
 
-# Ensure directories exist and set permissions
-RUN mkdir -p /app/storage/logs /app/bootstrap/cache
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
-RUN chmod -R 775 /app/storage /app/bootstrap/cache
+# Entrypoint script to fix permissions
+COPY dockerizer/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
