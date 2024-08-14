@@ -23,6 +23,20 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+
+Route::get('/news', [App\Http\Controllers\HomeController::class, 'news'])->name('news');
+
+Route::get('/blog_detail', [App\Http\Controllers\HomeController::class, 'blog_detail'])->name('blog_detail');
+
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+
+Route::get('/terms_and_conditions', [App\Http\Controllers\HomeController::class, 'terms_and_conditions'])->name('terms_and_conditions');
+
+Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
+
+Route::get('/terms_of_use', [App\Http\Controllers\HomeController::class, 'terms_of_use'])->name('terms_of_use');
+
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);

@@ -1,18 +1,18 @@
 /*
 Template Name: Experia
-Template URI: 
+Template URI:
 Description: Courier & Delivery Service HTML Template
 Author: Capricorn-Theme
-Author URI: 
+Author URI:
 Version: 1.0
  */
 /*--
-    - Google Font Import 
+    - Google Font Import
 -----------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800&display=swap");
 /*--
-    - Common CSS 
+    - Common CSS
 -----------------------------------------*/
 html,
 body {
@@ -22,7 +22,7 @@ body {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Prompt', sans-serif !important;
   font-size: 15px;
   line-height: 20px;
   font-weight: 400;
@@ -40,10 +40,17 @@ h4,
 h5,
 h6 {
   position: relative;
-  font-family: "Urbanist", sans-serif;
+  font-family: 'Prompt', sans-serif !important;
   font-weight: 500;
   margin: 0;
   color: #253745;
+}
+
+body, body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Prompt', sans-serif !important;
+}
+span, p , li ,strong, option , label, input, a, b {
+    font-family: 'Prompt', sans-serif !important;
 }
 
 h1 {
@@ -62,14 +69,13 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: #253745;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 p {
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
@@ -694,7 +700,7 @@ textarea::placeholder {
   }
 }
 
-/* Bacground Color & Overlay CSS 
+/* Bacground Color & Overlay CSS
 ============== */
 .gray-bg {
   background: #F7FBFF;
@@ -755,7 +761,7 @@ textarea::placeholder {
   z-index: -1;
 }
 
-/* Scroll Top 
+/* Scroll Top
 ============== */
 .go-top {
   background-color: #0984e3;
@@ -799,7 +805,7 @@ textarea::placeholder {
   color: #020E28;
 }
 
-/* Sticky CSS 
+/* Sticky CSS
 ============== */
 .header-area .is-sticky .sticky-area {
   background: #fff;
@@ -845,7 +851,7 @@ textarea::placeholder {
   font-size: 14px;
 }
 
-/* services animation effect 
+/* services animation effect
 ----------------------------------*/
 @-webkit-keyframes hvr-buzz-out {
   10% {
@@ -1062,7 +1068,7 @@ textarea::placeholder {
   margin-left: 20px;
 }
 
-/* Header Area 
+/* Header Area
 ============== */
 .header-area .navigation {
   padding: 0px 30px;
@@ -1360,7 +1366,7 @@ li.nav-item a.nav-link i {
 }
 
 .header-area .contact-info {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: #333;
   padding-right: 20px;
@@ -1387,7 +1393,7 @@ li.nav-item a.nav-link i {
   align-items: center;
 }
 
-/* Main Menu 
+/* Main Menu
 ============== */
 .main-menu .navbar {
   padding: 0;
@@ -1537,7 +1543,7 @@ li.nav-item a.nav-link i {
 }
 .single-slide-item h1 {
   color: #fff;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 600;
   line-height: 85px;
   letter-spacing: -1px;
@@ -3884,7 +3890,7 @@ label.form-label {
   background: #253745;
 }
 
-/* Blog-Classic Page 
+/* Blog-Classic Page
 ============== */
 #blog-page .single-blog-item {
   background: #fff;
@@ -4127,7 +4133,7 @@ a.reply-btn {
   color: #fff;
 }
 
-/* Single Blog Page  
+/* Single Blog Page
 ============== */
 .blog-meta {
   margin: 20px 0;
@@ -4185,7 +4191,7 @@ a.reply-btn {
 }
 
 .contact-info p {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 10px;
   color: #fff;
 }
@@ -4317,7 +4323,7 @@ p.privacy a:not(:last-of-type)::after {
 }
 
 .contact-body {
-  padding-left: 22px;
+  padding-left: 18px;
 }
 .contact-body h6 {
   font-size: 21px;
@@ -4325,7 +4331,7 @@ p.privacy a:not(:last-of-type)::after {
 }
 .contact-body p {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 25px;
 }
 
@@ -4426,7 +4432,7 @@ p.privacy a:not(:last-of-type)::after {
 }
 
 /*--------------------------------------------------------------
-# Search Form 
+# Search Form
 --------------------------------------------------------------*/
 .search-box button {
   text-decoration: none;
