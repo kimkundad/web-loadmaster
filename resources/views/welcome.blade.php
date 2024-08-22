@@ -116,7 +116,7 @@
                             road USA Cargo & Courier will help
                             you with the best solution
                         </p>
-                        <a class="main-btn primary" href="ware_housing.html">Read More <i
+                        <a class="main-btn primary" href="{{ url('/') }}">Read More <i
                                 class="las la-arrow-right"></i></a>
                     </div>
                 </div>
