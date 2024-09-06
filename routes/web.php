@@ -6,6 +6,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MyUserController;
+use App\Http\Controllers\NewConController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,15 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::resource('/admin/MyUser', MyUserController::class);
     Route::post('/api/api_post_status_MyUser', [App\Http\Controllers\MyUserController::class, 'api_post_status_MyUser']);
     Route::get('api/del_MyUser/{id}', [App\Http\Controllers\MyUserController::class, 'del_MyUser']);
+
+    Route::resource('/admin/news', NewConController::class);
+    Route::post('/api/api_post_status_news', [App\Http\Controllers\NewConController::class, 'api_post_status_news']);
+    Route::get('api/del_news/{id}', [App\Http\Controllers\NewConController::class, 'del_news']);
+
+    Route::post('api/upload_img', [NewConController::class, 'upload_img']);
+
+    Route::get('admin/contact/', [App\Http\Controllers\ContactController::class, 'index']);
+    Route::post('/api/api_post_status_contact', [App\Http\Controllers\ContactController::class, 'api_post_status_contact']);
 
 });
 
