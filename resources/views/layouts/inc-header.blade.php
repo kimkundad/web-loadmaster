@@ -93,7 +93,7 @@
 
                     </div>
                     <div class="header-btn">
-                        <a href="{{ url('/') }}" class="main-btn primary">ติดตามพัสดุ</a>
+                        <a href="{{ url('/track') }}" class="main-btn primary">ติดตามพัสดุ</a>
                     </div>
                 </div>
             </div>

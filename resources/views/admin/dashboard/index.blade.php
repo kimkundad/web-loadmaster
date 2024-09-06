@@ -2,7 +2,6 @@
 
 @section('title')
     <title>บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</title>
-    <meta name="description" content=" รายละเอียด บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด">
 @stop
 @section('stylesheet')
 

@@ -61,6 +61,11 @@ class HomeController extends Controller
         return view('terms_of_use');
     }
 
+    public function track()
+    {
+        return view('track');
+    }
+
 
 
 

@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +41,16 @@ Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])-
 
 Route::get('/terms_of_use', [App\Http\Controllers\HomeController::class, 'terms_of_use'])->name('terms_of_use');
 
+Route::get('/track', [App\Http\Controllers\HomeController::class, 'track'])->name('track');
+
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::resource('/admin/customer', CustomerController::class);
+    Route::resource('/admin/branch', BranchController::class);
+    ///admin/branch BranchController
+    Route::resource('/admin/myorder', OrderController::class);
+    Route::resource('/admin/driver', DriverController::class);
 
 });
 
