@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MyUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,10 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     ///admin/branch BranchController
     Route::resource('/admin/myorder', OrderController::class);
     Route::resource('/admin/driver', DriverController::class);
+
+    Route::resource('/admin/MyUser', MyUserController::class);
+    Route::post('/api/api_post_status_MyUser', [App\Http\Controllers\MyUserController::class, 'api_post_status_MyUser']);
+    Route::get('api/del_MyUser/{id}', [App\Http\Controllers\MyUserController::class, 'del_MyUser']);
 
 });
 
