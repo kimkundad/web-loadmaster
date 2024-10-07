@@ -177,6 +177,7 @@ class OrderController extends Controller
            $objs->dri_no_car = $dri->no_car;
            $objs->dri_phone = $dri->phone;
            $objs->dri_img = $dri->avatar;
+           $objs->order_status = 1;
            $objs->save();
 
            return redirect(url('admin/myorder/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
