@@ -60,7 +60,6 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
-            'email' => 'required'
            ]);
 
 
@@ -130,7 +129,6 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
-            'email' => 'required'
            ]);
 
 

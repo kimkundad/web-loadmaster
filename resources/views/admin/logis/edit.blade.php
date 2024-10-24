@@ -20,7 +20,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            แก้ไข ออเดอร์ขนส่ง</h1>
+                            แก้ไข ราคาขนส่ง</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -35,7 +35,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">แก้ไข ออเดอร์ขนส่ง</li>
+                            <li class="breadcrumb-item text-muted">แก้ไข ราคาขนส่ง</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -62,133 +62,158 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">สาขาปลายทาง</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">จังหวัด</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <select class="form-select" aria-label="Select example" name="branch_id">
+                                        <input type="text" name="province" class="form-control form-control-lg form-control-solid" placeholder="กรุงเทพมหานคร" value="{{ $objs->province }}">
+                                        @if ($errors->has('province'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('province') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
 
-                                        <option value="0" @if( $objs->branch_id == 0)
-                                                selected='selected'
-                                                @endif> ไม่มีสาขา</option>
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 10 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="tenbox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->tenbox }}">
+                                    @if ($errors->has('tenbox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('tenbox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
 
-                                            @isset($branch)
-                                            @foreach($branch as $u)
-                                            <option value="{{$u->id}}"
-                                            @if( $objs->branch_id == $u->id)
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 20 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="twentybox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->twentybox }}">
+                                    @if ($errors->has('twentybox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('twentybox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 30 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="thirtybox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->thirtybox }}">
+                                    @if ($errors->has('thirtybox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('thirtybox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 40 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="fortybox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->fortybox }}">
+                                    @if ($errors->has('fortybox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('fortybox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 50 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="fiftybox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->fiftybox }}">
+                                    @if ($errors->has('fiftybox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('fiftybox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคา 60 กล่อง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="sixtybox"  class="form-control form-control-lg form-control-solid" placeholder="20" value="{{ $objs->sixtybox }}">
+                                    @if ($errors->has('sixtybox'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('sixtybox') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Type</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+                                        <select class="form-select" aria-label="Select example" name="type">
+
+                                            <option value="central"
+                                            @if( $objs->type == 'central')
                                                 selected='selected'
                                                 @endif
-                                                >{{$u->name_branch}}</option>
-                                            @endforeach
-                                            @endisset
-                                        </select>
-                                        @if ($errors->has('branch_id'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกสาขาปลายทาง</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">เลือกคนขับรถ</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <select class="form-select" aria-label="Select example" name="driver_id">
-                                            @isset($user)
-                                            @foreach($user as $u)
-                                            <option value="{{$u->id_q}}"
-                                            @if( $objs->driver_id == $u->id_q)
+                                                >central</option>
+                                            <option value="south" @if( $objs->type == 'south')
                                                 selected='selected'
-                                                @endif
-                                                >{{$u->names}} ( {{$u->phone}} )</option>
-                                            @endforeach
-                                            @endisset
+                                                @endif>south</option>
+                                            <option value="west" @if( $objs->type == 'west')
+                                                selected='selected'
+                                                @endif>west</option>
+                                            <option value="northeast" @if( $objs->type == 'northeast')
+                                                selected='selected'
+                                                @endif>northeast</option>
+                                             <option value="nort" @if( $objs->type == 'nort')
+                                                selected='selected'
+                                                @endif>nort</option>
+                                             <option value="east" @if( $objs->type == 'east')
+                                                selected='selected'
+                                                @endif>east</option>
+
                                         </select>
-                                        @if ($errors->has('driver_id'))
+
+                                    @if ($errors->has('type'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกคนขับรถ</div>
+                                                <div>{{ $errors->first('type') }}</div>
                                             </div>
                                         @endif
                                     </div>
                                     <!--end::Col-->
                                 </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">หมายเลขออเดอรร์</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="code_order" class="form-control form-control-lg form-control-solid" value="{{ $objs->code_order }}">
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ช่วงเวลาที่จะไปถึง</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="dri_time" class="form-control form-control-lg form-control-solid" value="{{ $objs->dri_time }}">
-                                    </div>
-                                    @if ($errors->has('dri_time'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกช่วงเวลาที่จะไปถึง</div>
-                                            </div>
-                                        @endif
-                                    <!--end::Col-->
-                                </div>
-
-                                 <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">จำนวนสินค้า</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="amount" class="form-control form-control-lg form-control-solid" value="{{ $objs->amount }}">
-                                    </div>
-                                    @if ($errors->has('amount'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกจำนวนสินค้า</div>
-                                            </div>
-                                        @endif
-                                    <!--end::Col-->
-                                </div>
-
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคาค่าขอส่ง</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="price" class="form-control form-control-lg form-control-solid" value="{{ $objs->price }}">
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Size</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="size" class="form-control form-control-lg form-control-solid" value="{{ $objs->size }}">
-                                    </div>
-                                    @if ($errors->has('amount'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาระบุขนาดสินค้า</div>
-                                            </div>
-                                        @endif
-                                    <!--end::Col-->
-                                </div>
-
 
 
 

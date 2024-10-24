@@ -7,6 +7,8 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\NewConController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\LogisticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,14 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('admin/contact/', [App\Http\Controllers\ContactController::class, 'index']);
     Route::post('/api/api_post_status_contact', [App\Http\Controllers\ContactController::class, 'api_post_status_contact']);
+
+    Route::resource('/admin/size', SizeController::class);
+    Route::get('api/del_size/{id}', [App\Http\Controllers\SizeController::class, 'del_size']);
+    Route::post('/api/api_post_status_size', [App\Http\Controllers\SizeController::class, 'api_post_status_size']);
+
+    Route::resource('/admin/logis', LogisticsController::class);
+    Route::get('api/del_logis/{id}', [App\Http\Controllers\LogisticsController::class, 'del_logis']);
+    Route::post('/api/api_post_status_logis', [App\Http\Controllers\LogisticsController::class, 'api_post_status_logis']);
 
 });
 

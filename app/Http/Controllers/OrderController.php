@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $objs = order::paginate(30);
+        $objs = order::orderBy('id', 'desc')->paginate(30);
         $objs->setPath('');
         $data['objs'] = $objs;
         return view('admin.orders.index', compact('objs'));
@@ -74,7 +74,9 @@ class OrderController extends Controller
            $user = User::where('id', $branch->user_id)->first();
            $dri = User::where('id', $request['driver_id'])->first();
 
-           $objs = new order();
+           if($request['branch_id'] !== 0){
+
+            $objs = new order();
            $objs->user_id = $branch->user_id;
            $objs->branch_id = $request['branch_id'];
            $objs->driver_id = $request['driver_id'];
@@ -93,6 +95,9 @@ class OrderController extends Controller
            $objs->dri_phone = $dri->phone;
            $objs->dri_img = $dri->avatar;
            $objs->save();
+
+           }
+
 
            return redirect(url('admin/myorder'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
     }
@@ -189,5 +194,9 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         //
+        $obj = news::find($id);
+        $obj->delete();
+
+        return redirect(url('admin/news/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
     }
 }
