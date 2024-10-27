@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\branch;
 use Illuminate\Support\Facades\DB;
+use App\Models\logis;
 
 class BranchController extends Controller
 {
@@ -42,6 +43,10 @@ class BranchController extends Controller
             ->get();
 //dd($user);
             $data['user'] = $user;
+
+            $logis = logis::all();
+            $data['logis'] = $logis;
+
             $data['method'] = "post";
             $data['url'] = url('admin/branch');
             return view('admin.branch.create', $data);
@@ -60,6 +65,7 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
+            'province' => 'required'
            ]);
 
 
@@ -68,6 +74,7 @@ class BranchController extends Controller
            $objs->name_branch = $request['name_branch'];
            $objs->address_branch = $request['address_branch'];
            $objs->code_branch = $request['code_branch'];
+           $objs->province = $request['province'];
            $objs->phone = $request['phone'];
            $objs->admin_branch = $request['admin_branch'];
            $objs->time = $request['time'];
@@ -109,6 +116,9 @@ class BranchController extends Controller
 //dd($user);
             $data['user'] = $user;
 
+            $logis = logis::all();
+            $data['logis'] = $logis;
+
         $objs = branch::find($id);
         $data['url'] = url('admin/branch/'.$id);
         $data['method'] = "put";
@@ -129,6 +139,7 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
+            'province' => 'required'
            ]);
 
 
@@ -141,6 +152,7 @@ class BranchController extends Controller
            $objs->admin_branch = $request['admin_branch'];
            $objs->time = $request['time'];
            $objs->email = $request['email'];
+           $objs->province = $request['province'];
            $objs->save();
 
            return redirect(url('admin/branch/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');

@@ -1,24 +1,24 @@
 
 
-<script>   
-var defaultThemeMode = "light"; 
-var themeMode; 
-if ( document.documentElement ) 
-{ 
-    if ( document.documentElement.hasAttribute("data-theme-mode")) 
-    { 
-        themeMode = document.documentElement.getAttribute("data-theme-mode"); 
-    } else { 
+<script>
+var defaultThemeMode = "light";
+var themeMode;
+if ( document.documentElement )
+{
+    if ( document.documentElement.hasAttribute("data-theme-mode"))
+    {
+        themeMode = document.documentElement.getAttribute("data-theme-mode");
+    } else {
 
-        if ( localStorage.getItem("data-theme") !== null ) { themeMode = localStorage.getItem("data-theme"); 
-        } else { 
-            themeMode = defaultThemeMode; 
-        } 
-        
-    } if (themeMode === "system") { 
-        themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; 
-    } 
-    document.documentElement.setAttribute("data-theme", themeMode); 
+        if ( localStorage.getItem("data-theme") !== null ) { themeMode = localStorage.getItem("data-theme");
+        } else {
+            themeMode = defaultThemeMode;
+        }
+
+    } if (themeMode === "system") {
+        themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", themeMode);
 }
             </script>
 
@@ -30,6 +30,7 @@ if ( document.documentElement )
 <!--end::Global Javascript Bundle-->
 <!--begin::Vendors Javascript(used for this page only)-->
 <script src="{{ url('admin/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<script src="{{ url('admin/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
 <!--end::Vendors Javascript-->
 <!--begin::Custom Javascript(used for this page only)-->
 <script src="{{ url('admin/assets/js/custom/apps/file-manager/list.js') }}"></script>
@@ -39,6 +40,9 @@ if ( document.documentElement )
 <script src="{{ url('admin/assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
 <script src="{{ url('admin/assets/js/custom/utilities/modals/create-app.js') }}"></script>
 <script src="{{ url('admin/assets/js/custom/utilities/modals/users-search.js') }}"></script>
+
+<script src="{{ url('admin/assets/js/custom/pages/social/feeds.js') }}"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
@@ -65,7 +69,7 @@ if ( document.documentElement )
         }
     });
     @endif
-    
+
     @if ($message = Session::get('del_success'))
     Swal.fire({
         text: "ระบบได้ทำการลบข้อมูลสำเร็จ!",
@@ -90,7 +94,7 @@ if ( document.documentElement )
     });
     @endif
 
-    
+
 
 </script>
 <!--end::Custom Javascript-->
