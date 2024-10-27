@@ -475,30 +475,85 @@
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
 
-                                    <div class="row g-7 h-250px h-md-375px">
+                                    <div class="row">
 															<!--begin::Col-->
                                                             @if($ImgStep1)
                                                             @foreach ($ImgStep1 as $u)
 
 
 															<div class="col-6">
-																<!--begin::Item-->
-																<a class="d-block card-rounded overlay h-100" data-fslightbox="lightbox-projects" href="{{ $u->image }}">
-																	<!--begin::Image-->
-																	<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-100" style="background-image:url({{ $u->image }})"></div>
-																	<!--end::Image-->
-																	<!--begin::Action-->
-																	<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-																		<i class="bi bi-eye-fill fs-3x text-white"></i>
-																	</div>
-																	<!--end::Action-->
-																</a>
-																<!--end::Item-->
+
+																<img src="{{ $u->image }}" class="rounded " style="height:450px; wdth:100%">
+                                                                <p><b>พิกัด</b> : {{ $u->address }}</p>
+                                                                <p><b>วันที่</b> : {{ $u->created_at }}</p>
+															</div>
+
+                                                            @endforeach
+                                                            @endif
+                                                            <p><b>หมายเหตุ</b> : {{ $objs->remark_dri1 }}</p>
+                                                            </div>
+
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปส่งของสำเร็จ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+                                    <div class="row">
+															<!--begin::Col-->
+                                                            @if($ImgStep2)
+                                                            @foreach ($ImgStep2 as $u)
+
+
+															<div class="col-6">
+
+																<img src="{{ $u->image }}" class="rounded " style="height:450px; wdth:100%">
+                                                                <p><b>พิกัด</b> : {{ $u->address }}</p>
+                                                                <p><b>วันที่</b> : {{ $u->created_at }}</p>
+															</div>
+
+                                                            @endforeach
+                                                            @endif
+
+                                                            <p><b>หมายเหตุ</b> : {{ $objs->remark_dri2 }}</p>
+                                                            </div>
+
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปแจ้งอุบัติเหตุ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+                                    <div class="row">
+															<!--begin::Col-->
+                                                            @if($ImgStep3)
+                                                            @foreach ($ImgStep3 as $u)
+
+
+															<div class="col-6">
+
+																<img src="{{ $u->image }}" class="rounded " style="height:450px; wdth:100%">
+                                                                <p><b>พิกัด</b> : {{ $u->address }}</p>
+                                                                <p><b>วันที่</b> : {{ $u->created_at }}</p>
 															</div>
 
                                                             @endforeach
                                                             @endif
                                                             </div>
+                                                            <p><b>หมายเหตุ</b> : {{ $objs->remark_dri3 }}</p>
 
                                     </div>
                                     <!--end::Col-->
@@ -731,52 +786,92 @@ driverSelect.addEventListener('change', handleInputChange);
 amountInput.addEventListener('input', handleInputChange);
 
 
-const latitude2 = parseFloat("{{ $objs->latitude2 }}") || 13.7563;  // Default to Bangkok if not available
+const latitude2 = parseFloat("{{ $objs->latitude2 }}") || 13.7563; // Default to Bangkok if not available
 const longitude2 = parseFloat("{{ $objs->longitude2 }}") || 100.5018;
+const latitude1 = parseFloat("{{ $objs->latitude }}") || 13.7211; // Default starting point
+const longitude1 = parseFloat("{{ $objs->longitude }}") || 100.5904;
 
-function initialize() {
-    const initialLocation = new google.maps.LatLng(latitude2, longitude2); // Use provided coordinates or default
+const d_lat = parseFloat("{{ $objs->d_lat }}") || 13.7211; // Default truck location
+const d_long = parseFloat("{{ $objs->d_long }}") || 100.5904;
 
-    const mapOptions = {
-        center: initialLocation,
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+(function () {
+    let map, geocoder, marker, directionsService, directionsRenderer;
 
-    geocoder = new google.maps.Geocoder();
-    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    function initialize() {
+        const initialLocation = new google.maps.LatLng(latitude2, longitude2);
+        const truckLocation = new google.maps.LatLng(d_lat, d_long);  // Truck location
 
-    // Place initial marker if coordinates are provided
-    placeMarker(initialLocation);
+        const mapOptions = {
+            center: initialLocation,
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 
-    // Handle map click to place a marker and update coordinates
-    google.maps.event.addListener(map, 'click', function (event) {
-        placeMarker(event.latLng);
-    });
-}
+        geocoder = new google.maps.Geocoder();
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
 
-function placeMarker(location) {
-    if (marker) {
-        marker.setPosition(location);
-    } else {
-        marker = new google.maps.Marker({
-            position: location,
-            map: map
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        directionsRenderer.setMap(map);
+
+        // Place the truck marker
+        new google.maps.Marker({
+            position: truckLocation,
+            map: map,
+            icon: {
+                url: "{{ url('img/icon_truck.png') }}", // Truck icon
+                scaledSize: new google.maps.Size(40, 40)  // Adjust size
+            },
+            title: "Truck Location"
+        });
+
+        placeMarker(initialLocation); // Place marker on the initial location
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            placeMarker(event.latLng); // Allow users to place marker on click
+        });
+
+        // Calculate route if coordinates are available
+        if (latitude1 && longitude1 && latitude2 && longitude2) {
+            calculateAndDisplayRoute();
+        }
+    }
+
+    function placeMarker(location) {
+        if (marker) {
+            marker.setPosition(location); // Update marker position
+        } else {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        document.getElementById('latitude').value = location.lat();
+        document.getElementById('longitude').value = location.lng();
+        getAddress(location);
+    }
+
+    function calculateAndDisplayRoute() {
+        const request = {
+            origin: new google.maps.LatLng(latitude1, longitude1),
+            destination: new google.maps.LatLng(latitude2, longitude2),
+            travelMode: google.maps.TravelMode.DRIVING // Use driving mode
+        };
+
+        directionsService.route(request, function (result, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                directionsRenderer.setDirections(result);
+            } else {
+                console.error('Directions request failed due to ' + status);
+            }
         });
     }
 
-    document.getElementById('latitude').value = location.lat();
-    document.getElementById('longitude').value = location.lng();
-    getAddress(location);
-}
-
-function getAddress(latLng) {
-    geocoder.geocode(
-        { 'latLng': latLng, 'language': 'th' },  // Request in Thai
-        function (results, status) {
+    function getAddress(latLng) {
+        geocoder.geocode({ 'latLng': latLng, 'language': 'th' }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
-                    console.log('Address:', results[0].formatted_address);
                     document.getElementById("addressTextarea").value = results[0].formatted_address;
                 } else {
                     document.getElementById("addressTextarea").value = "ไม่พบข้อมูลที่อยู่";
@@ -784,15 +879,11 @@ function getAddress(latLng) {
             } else {
                 document.getElementById("addressTextarea").value = "เกิดข้อผิดพลาด: " + status;
             }
-        }
-    );
-}
+        });
+    }
 
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-
+    google.maps.event.addDomListener(window, 'load', initialize);
+})();
 
 </script>
 

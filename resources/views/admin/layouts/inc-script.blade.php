@@ -41,7 +41,7 @@ if ( document.documentElement )
 <script src="{{ url('admin/assets/js/custom/utilities/modals/create-app.js') }}"></script>
 <script src="{{ url('admin/assets/js/custom/utilities/modals/users-search.js') }}"></script>
 
-<script src="{{ url('admin/assets/js/custom/pages/social/feeds.js') }}"></script>
+
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

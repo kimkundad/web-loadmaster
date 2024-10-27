@@ -15,7 +15,7 @@ class BranchController extends Controller
     public function index()
     {
         //
-        $objs = branch::paginate(30);
+        $objs = branch::orderBy('id', 'desc')->paginate(30);
         $objs->setPath('');
         $data['objs'] = $objs;
         return view('admin.branch.index', compact('objs'));
@@ -65,7 +65,9 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
-            'province' => 'required'
+            'province' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
            ]);
 
 
@@ -79,6 +81,8 @@ class BranchController extends Controller
            $objs->admin_branch = $request['admin_branch'];
            $objs->time = $request['time'];
            $objs->email = $request['email'];
+           $objs->latitude = $request['latitude'];
+           $objs->longitude = $request['longitude'];
            $objs->save();
 
            return redirect(url('admin/branch'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
@@ -139,7 +143,9 @@ class BranchController extends Controller
             'code_branch' => 'required',
             'phone' => 'required',
             'admin_branch' => 'required',
-            'province' => 'required'
+            'province' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
            ]);
 
 
@@ -153,6 +159,8 @@ class BranchController extends Controller
            $objs->time = $request['time'];
            $objs->email = $request['email'];
            $objs->province = $request['province'];
+           $objs->latitude = $request['latitude'];
+           $objs->longitude = $request['longitude'];
            $objs->save();
 
            return redirect(url('admin/branch/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');

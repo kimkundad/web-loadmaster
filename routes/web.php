@@ -79,6 +79,12 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
 });
 
+Route::get('/image-proxy', function (Request $request) {
+    $imageUrl = $request->query('url');
+    $content = file_get_contents($imageUrl);
+    return response($content)->header('Content-Type', 'image/jpeg');
+});
+
 
 //การนำเอาไฟล์ที่อัพโหลดมาใช้งานใน Application
 Route::get('/images/{file}', function ($file) {

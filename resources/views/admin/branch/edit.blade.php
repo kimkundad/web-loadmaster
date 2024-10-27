@@ -133,6 +133,35 @@
                                     <!--end::Col-->
                                 </div>
 
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">เลือกพิกัดของสาขา</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <div id="map_canvas" style="width:100%; border:0; height:516px;" frameborder="0">
+                                        </div>
+
+                                         <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control form-control-lg form-control-solid" id="latitude" name="latitude" value="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control form-control-lg form-control-solid" id="longitude" name="longitude" value="">
+                                        </div>
+                                        @if ($errors->has('latitude'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>{{ $errors->first('latitude') }} {{ $errors->first('longitude') }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    </div>
+
+                                    <!--end::Col-->
+                                </div>
+
                                 <div class="row mb-6">
                                     <!--begin::Label-->
                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อผู้ดูแลสาขา</label>
@@ -282,6 +311,76 @@
 @endsection
 
 @section('scripts')
+
+
+<script type="text/javascript" src='https://maps.google.com/maps/api/js?key=AIzaSyDtcFHSNerbvIWPVv5OStj-czBq_6RMbRg&libraries=places&sensor=false'></script>
+<script>
+let map;
+let marker;
+let geocoder;
+
+const latitude1 = parseFloat("{{ $objs->latitude }}") || 13.7211; // Default starting point
+const longitude1 = parseFloat("{{ $objs->longitude }}") || 100.5904; // Default longitude
+
+// Initialize Google Map
+function initialize() {
+    const initialLocation = new google.maps.LatLng(latitude1, longitude1); // Use provided coordinates or default
+
+    const mapOptions = {
+        center: initialLocation,
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    };
+
+    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+    // Place marker at the initial location
+    placeMarker(initialLocation);
+
+    // Handle map click to update marker and coordinates
+    google.maps.event.addListener(map, 'click', function (event) {
+        placeMarker(event.latLng);
+    });
+}
+
+function placeMarker(location) {
+    if (marker) {
+        marker.setPosition(location); // Update marker position
+    } else {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+
+    // Update latitude and longitude fields
+    document.getElementById('latitude').value = location.lat();
+    document.getElementById('longitude').value = location.lng();
+
+    // Get and display the address in the textarea
+    getAddress(location);
+}
+
+function getAddress(latLng) {
+    geocoder.geocode({ 'latLng': latLng, 'language': 'th' }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                console.log('Address:', results[0].formatted_address);
+                document.getElementById("textareaAutosize").value = results[0].formatted_address;
+            } else {
+                document.getElementById("textareaAutosize").value = "ไม่พบข้อมูลที่อยู่";
+            }
+        } else {
+            document.getElementById("textareaAutosize").value = "เกิดข้อผิดพลาด: " + status;
+        }
+    });
+}
+
+// Load map on window load
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 
 
 @stop('scripts')
