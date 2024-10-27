@@ -83,6 +83,7 @@
                                             <th class="p-0 ">ปลายทาง</th>
                                             <th class="p-0 ">รถขนส่ง</th>
                                             <th class="p-0 ">เบอร์คนรับของ</th>
+                                            <th class="p-0 ">สถานะ</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
@@ -105,15 +106,32 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                @if($item->driver_id == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">ยังไม่ระบุคนขับรถ</span>
+                                                @else
                                                 <div class="d-flex flex-column">
                                                     <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->dri_name }}</a>
                                                     <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
                                                         <span class="text-dark">ข้อมูลรถ </span>: {{ $item->dri_type }} , {{ $item->dri_no_car }}
                                                     </a>
                                                 </div>
+                                                @endif
+
                                             </td>
                                             <td>
                                                 {{ $item->b_phone }}
+                                            </td>
+
+                                            <td>
+                                                @if($item->order_status == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">ยังไม่จ่ายงาน</span>
+                                                @elseif($item->order_status == 1)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">กำลังดำเนินงาน</span>
+                                                @elseif($item->order_status == 2)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-success">ส่งสำเร็จแล้ว</span>
+                                                @elseif($item->order_status == 3)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-danger">เกิดอุบัติเหตุ</span>
+                                                @endif
                                             </td>
 
                                             <td class="text-end">

@@ -341,6 +341,7 @@ function initialize() {
     // Handle map click to update marker and coordinates
     google.maps.event.addListener(map, 'click', function (event) {
         placeMarker(event.latLng);
+        getAddress(event.latLng);
     });
 }
 
@@ -359,7 +360,7 @@ function placeMarker(location) {
     document.getElementById('longitude').value = location.lng();
 
     // Get and display the address in the textarea
-    getAddress(location);
+
 }
 
 function getAddress(latLng) {
