@@ -8,7 +8,6 @@
 
 
     <style>
-
 @font-face {
                 font-family: 'Prompt';
                 src: url({{ storage_path("fonts/Prompt-Regular.ttf") }}) format("truetype");
@@ -177,8 +176,7 @@
             <tr>
                 <td style="width: 65%; vertical-align: top;">
                     <h3>บริษัท ทัพพีพิศ พิลส์ จำกัด 2 PAKNAM</h3>
-                    <p>
-                    <b style="font-size: 12px; font-weight: 400;">ที่อยู่ : เลขที่ 75/19-20 ถนนศรีสมุทร ตำบลปากน้ำ อำเภยเมืองสมุทรปราการ จังหวัดสมุทรปราการ 10270</b></p>
+                    <b class="add_cus mt-5 prompt-regular">ที่อยู่ : เลขที่ 75/19-20 ถนนศรีสมุทร ตำบลปากน้ำ อำเภยเมืองสมุทรปราการ จังหวัดสมุทรปราการ 10270</b>
                     <p class="add_cus mt-5">โทร : 0625418356</p>
                     <p class="add_cus mt-5">เลขประจำตัวผู้เสียภาษี : 0125566039617</p>
                 </td>
