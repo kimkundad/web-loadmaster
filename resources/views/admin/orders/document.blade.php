@@ -45,12 +45,11 @@
             font-size: 15px
         }
 
-        h1,
-        h2,
-        h3,
+
         p {
             margin: 0;
             padding: 0;
+            font-size: 12px;
         }
 
         .header {
