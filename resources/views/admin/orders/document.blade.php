@@ -8,12 +8,13 @@
 
 
     <style>
+
 @font-face {
-    font-family: 'Prompt';
-    src: public_path({{ ('fonts/Prompt-Regular.ttf') }}) format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
+                font-family: 'Prompt';
+                src: url({{ storage_path("fonts/Prompt-Regular.ttf") }}) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+            }
 
         body,
         h1,
