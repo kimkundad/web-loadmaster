@@ -48,9 +48,9 @@
             font-size: 15px
         }
         .prompt-regular {
-        font-family: "Prompt", serif;
-        font-weight: 400;
-        font-style: normal;
+        font-family: "Prompt", serif !important;
+        font-weight: 400 !important;
+        font-style: normal !important;
         }
 
         p {
