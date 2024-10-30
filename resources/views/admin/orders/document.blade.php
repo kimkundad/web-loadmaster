@@ -27,6 +27,7 @@
         a,
         b {
             font-family: 'Prompt', sans-serif !important;
+            font-weight: 400;
         }
 
         .container {
@@ -50,7 +51,7 @@
             margin: 0;
             padding: 0;
             font-size: 12px;
-            font-weight: normal;
+            font-weight: bold;
         }
 
         .header {
