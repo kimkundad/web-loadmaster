@@ -7,17 +7,6 @@
     <title>Invoice</title>
 
     <style>
-        @font-face {
-            font-family: 'Prompt';
-            src: url({{ '/fonts/Prompt-Regular.ttf' }}) format('truetype');
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: 'Prompt';
-            src: url({{ '/fonts/Prompt-Bold.ttf' }}) format('truetype');
-            font-weight: bold;
-        }
 
         body,
         body,
