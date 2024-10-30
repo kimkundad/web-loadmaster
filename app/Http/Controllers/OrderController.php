@@ -35,8 +35,7 @@ class OrderController extends Controller
         $pdf = \PDF::loadView('admin.orders.document', $data)
                 ->setPaper('a4', 'portrait'); // Optional: Set paper size and orientation
              //  return view('admin.orders.document', $data);
-              return $pdf->download('document.pdf');
-
+              return $pdf->stream('document.pdf');
     }
 
 
