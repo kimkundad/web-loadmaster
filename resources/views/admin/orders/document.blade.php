@@ -13,7 +13,11 @@
         h3,
         h4,
         h5,
-        h6,span,
+        h6, {
+            font-family: 'Prompt', sans-serif !important;
+        }
+
+        span,
         p,
         li,
         strong,
@@ -24,7 +28,6 @@
         b {
             font-family: 'Prompt', sans-serif !important;
         }
-
 
         .container {
             max-width: 800px;
@@ -47,7 +50,7 @@
             margin: 0;
             padding: 0;
             font-size: 12px;
-            font-weight: 400;
+            font-weight: Regular;
         }
 
         .header {
@@ -149,7 +152,7 @@
                 305 ซอยพระรามที่ 2 แขวงบางมด เขตจอมทอง กรุงเทพมหานคร 10150<br>
                 โทรศัพท์: 099-276-2487<br>
                 ลขประจำตัวผู้เสียภาษี: 0105567110129</p>
-                <p>ทดลอง 555+
+                <p style="font-weight: Regular;">ทดลอง 555+
                 </p>
             </div>
 
