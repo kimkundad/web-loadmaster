@@ -10,7 +10,7 @@
     <style>
 @font-face {
     font-family: 'Prompt';
-    src: url({{ storage_path('fonts/Prompt-Regular.ttf') }}) format('truetype');
+    src: url({{ ('fonts/Prompt-Regular.ttf') }}) format('truetype');
     font-weight: 400;
     font-style: normal;
 }
