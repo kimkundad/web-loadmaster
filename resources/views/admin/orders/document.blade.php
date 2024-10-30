@@ -51,7 +51,7 @@
             margin: 0;
             padding: 0;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 400;
         }
 
         .header {
