@@ -8,6 +8,7 @@ use App\Models\branch;
 use App\Models\User;
 use App\Models\logis;
 use App\Models\ImgStep;
+use PDF;
 
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,19 @@ class OrderController extends Controller
         $objs->setPath('');
         $data['objs'] = $objs;
         return view('admin.orders.index', compact('objs'));
+    }
+
+    public function generatePDF()
+    {
+        $data = [
+            'title' => 'ใบเสร็จรับเงิน',
+        ];
+
+        $pdf = \PDF::loadView('admin.orders.document', $data)
+                ->setPaper('a4', 'portrait'); // Optional: Set paper size and orientation
+             //  return view('admin.orders.document', $data);
+              return $pdf->download('document.pdf');
+
     }
 
 

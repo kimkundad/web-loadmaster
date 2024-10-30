@@ -4,6 +4,15 @@
     <title>บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</title>
 @stop
 @section('stylesheet')
+<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+<style>
+        body, body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Prompt', sans-serif !important;
+}
+span, p , li ,strong, option , label, input, a, b {
+    font-family: 'Prompt', sans-serif !important;
+}
+    </style>
 
 @stop('stylesheet')
 

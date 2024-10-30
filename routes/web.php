@@ -47,6 +47,8 @@ Route::get('/terms_of_use', [App\Http\Controllers\HomeController::class, 'terms_
 
 Route::get('/track', [App\Http\Controllers\HomeController::class, 'track'])->name('track');
 
+Route::get('/generate-pdf', [OrderController::class, 'generatePDF']);
+
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
@@ -54,6 +56,7 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::resource('/admin/branch', BranchController::class);
     ///admin/branch BranchController
     Route::resource('/admin/myorder', OrderController::class);
+
     Route::resource('/admin/driver', DriverController::class);
 
     Route::resource('/admin/MyUser', MyUserController::class);

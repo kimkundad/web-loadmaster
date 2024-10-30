@@ -791,8 +791,8 @@ const longitude2 = parseFloat("{{ $objs->longitude2 }}") || 100.5018;
 const latitude1 = parseFloat("{{ $objs->latitude }}") || 13.7211; // Default starting point
 const longitude1 = parseFloat("{{ $objs->longitude }}") || 100.5904;
 
-const d_lat = parseFloat("{{ $objs->d_lat }}") || 13.7211; // Default truck location
-const d_long = parseFloat("{{ $objs->d_long }}") || 100.5904;
+const d_lat = parseFloat("{{ $objs->d_lat }}") || 13.5116094; // Default truck location
+const d_long = parseFloat("{{ $objs->d_long }}") || 100.68715;
 
 (function () {
     let map, geocoder, marker, directionsService, directionsRenderer;
