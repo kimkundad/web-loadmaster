@@ -13,11 +13,7 @@
         h3,
         h4,
         h5,
-        h6 {
-            font-family: 'Prompt', sans-serif !important;
-        }
-
-        span,
+        h6,span,
         p,
         li,
         strong,
@@ -27,8 +23,8 @@
         a,
         b {
             font-family: 'Prompt', sans-serif !important;
-            font-weight: 400;
         }
+
 
         .container {
             max-width: 800px;
