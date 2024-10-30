@@ -50,7 +50,7 @@
             margin: 0;
             padding: 0;
             font-size: 12px;
-            font-weight: 400
+            font-weight: bold;
         }
 
         .header {
