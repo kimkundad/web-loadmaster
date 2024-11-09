@@ -9,6 +9,7 @@ use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\NewConController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\LogisticsController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,9 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::resource('/admin/logis', LogisticsController::class);
     Route::get('api/del_logis/{id}', [App\Http\Controllers\LogisticsController::class, 'del_logis']);
     Route::post('/api/api_post_status_logis', [App\Http\Controllers\LogisticsController::class, 'api_post_status_logis']);
+
+    Route::get('admin/setting/', [App\Http\Controllers\SettingController::class, 'index']);
+    Route::post('api/post_setting/', [App\Http\Controllers\SettingController::class, 'post_setting']);
 
 });
 
