@@ -96,9 +96,6 @@ class NewConController extends Controller
             'title' => 'required',
             'sub_title' => 'required',
             'detail' => 'required',
-            'title_en' => 'required',
-            'sub_title_en' => 'required',
-            'detail_en' => 'required',
             'startdate' => 'required',
             'image' => 'required'
         ]);
@@ -123,9 +120,6 @@ class NewConController extends Controller
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
-           $objs->title_en = $request['title_en'];
-           $objs->sub_title_en = $request['sub_title_en'];
-           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
            $objs->startdate = $request['startdate'];
            $objs->image = $input['imagename'];
@@ -179,9 +173,6 @@ class NewConController extends Controller
             'title' => 'required',
             'sub_title' => 'required',
             'detail' => 'required',
-            'title_en' => 'required',
-            'sub_title_en' => 'required',
-            'detail_en' => 'required',
             'startdate' => 'required'
            ]);
 
@@ -200,9 +191,6 @@ class NewConController extends Controller
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
-           $objs->title_en = $request['title_en'];
-           $objs->sub_title_en = $request['sub_title_en'];
-           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
            $objs->startdate = $request['startdate'];
            $objs->type = 0;
@@ -229,9 +217,6 @@ class NewConController extends Controller
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
-           $objs->title_en = $request['title_en'];
-           $objs->sub_title_en = $request['sub_title_en'];
-           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
            $objs->image = $input['imagename'];
            $objs->startdate = $request['startdate'];

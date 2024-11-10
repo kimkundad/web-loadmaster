@@ -96,8 +96,8 @@
                                         <tr id="{{$item->id_q}}">
                                             <td>
                                                 <div class="symbol symbol-50px">
-                                                    @if($item->avatar)
-                                                    <img src="{{ url('admin/assets/media/avatars/'.$item->avatar) }}" alt="">
+                                                    @if(strpos($item->avatar, 'kimspace2') !== false)
+                                                    <img src="{{ $item->avatar }}" alt="">
                                                     @else
                                                     <img src="{{ url('admin/assets/media/avatars/blank.png') }}" alt="">
                                                     @endif

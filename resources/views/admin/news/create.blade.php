@@ -130,22 +130,7 @@
                                 </div>
 
 
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อกิจกรรม & ประชาสัมพันธ์สินค้า En</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="title_en" class="form-control form-control-lg form-control-solid" placeholder="10 อันดับขยะที่นำมารีไซเคิลมากที่สุด" value="{{old('title_en') ? old('title_en') : ''}}">
 
-                                        @if ($errors->has('title_en'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกชื่อกิจกรรม & ประชาสัมพันธ์สินค้า En</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
@@ -192,21 +177,7 @@
                                     <!--end::Col-->
                                 </div>
 
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">รายละเอียดแบบย่อ En</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="รายละเอียดแบบย่อ..." rows="3" name="sub_title_en" >{{old('sub_title_en') ? old('sub_title_en') : ''}} </textarea>
-                                        @if ($errors->has('sub_title_en'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกรายละเอียดแบบย่อ En</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
+
 
 
                                 <div class="row mb-6">
@@ -228,24 +199,7 @@
                                     <!--end::Col-->
                                 </div>
 
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียด En</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
-                                        <textarea name="detail" class="summernote" id="kt_docs_ckeditor_classic" >
-                                            <h3>กรอกรายละเอียด...</h3>
-                                            {{old('detail_en') ? old('detail_en') : ''}}
-                                        </textarea>
-                                        @if ($errors->has('detail_en'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกรายละเอียด En</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
+
 
                                 <div class="row mb-0">
                                     <!--begin::Label-->
