@@ -51,6 +51,10 @@ class LoginController extends Controller
      if($request->user()->hasRole('user')){
        return redirect('/');
      }
+     if($request->user()->hasRole('MasterDriver')){
+        return redirect('/admin/dashboardDri');
+        }
+
 
      //return redirect('/');
      }

@@ -10,6 +10,8 @@ use App\Http\Controllers\NewConController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\LogisticsController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,10 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::post('/api/api_post_status_news', [App\Http\Controllers\NewConController::class, 'api_post_status_news']);
     Route::get('api/del_news/{id}', [App\Http\Controllers\NewConController::class, 'del_news']);
 
+    Route::resource('/admin/holiday', HolidayController::class);
+    Route::post('/api/api_post_status_holiday', [App\Http\Controllers\HolidayController::class, 'api_post_status_news']);
+    Route::get('api/del_holiday/{id}', [App\Http\Controllers\HolidayController::class, 'del_news']);
+
     Route::post('api/upload_img', [NewConController::class, 'upload_img']);
 
     Route::get('admin/contact/', [App\Http\Controllers\ContactController::class, 'index']);
@@ -83,6 +89,14 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('admin/setting/', [App\Http\Controllers\SettingController::class, 'index']);
     Route::post('api/post_setting/', [App\Http\Controllers\SettingController::class, 'post_setting']);
+
+});
+
+Route::group(['middleware' => ['UserRole:MasterDriver']], function() {
+
+    Route::get('/admin/dashboardDri', [App\Http\Controllers\DashboardController::class, 'indexDri']);
+    Route::resource('/admin/driver', DriverController::class);
+    Route::resource('/admin/category', CategoryController::class);
 
 });
 

@@ -1,7 +1,8 @@
 @extends('admin.layouts.template')
 
 @section('title')
-    <title>บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</title>
+    <title>วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</title>
+    <meta name="description" content=" รายละเอียด วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด">
 @stop
 @section('stylesheet')
 
@@ -20,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            รายชื่อคนขับรถทั้งหมด</h1>
+                            หมวดหมู่สินค้าทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -35,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">รายชื่อคนขับรถทั้งหมด</li>
+                            <li class="breadcrumb-item text-muted">หมวดหมู่สินค้า</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -43,7 +44,7 @@
                     <!--end::Page title-->
                     <!--begin::Actions-->
                     <div class="d-flex align-items-center gap-2 gap-lg-3">
-                        <a href="{{ url('admin/driver/create') }}" class="btn btn-sm fw-bold btn-primary" >
+                        <a href="{{ url('admin/category/create') }}" class="btn btn-sm fw-bold btn-primary" >
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr017.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.3" d="M11 13H7C6.4 13 6 12.6 6 12C6 11.4 6.4 11 7 11H11V13ZM17 11H13V13H17C17.6 13 18 12.6 18 12C18 11.4 17.6 11 17 11Z" fill="currentColor"/>
@@ -63,12 +64,12 @@
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
-
+                    
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">คนขับรถ ทั้งหมด </span>
-                                <span class="text-muted mt-1 fw-semibold fs-7"> จำนวน ( {{ count($objs) }} )</span>
+                                <span class="card-label fw-bold fs-3 mb-1">หมวดหมู่ทั้งหมด</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7"> หมวดหมู่ {{ count($objs) }}</span>
                             </h3>
                         </div>
                         <div class="card-body py-3">
@@ -76,59 +77,54 @@
                             <div class="table-responsive">
                                 <!--begin::Table-->
                                 <table class="table align-middle gs-0 gy-3">
-                                    <!--begin::Table head superadmin-->
+                                    <!--begin::Table head-->
                                     <thead>
                                         <tr>
                                             <th class="p-0 w-50px"></th>
                                             <th class="p-0 "></th>
-                                            <th class="p-0 ">ประเภทรถ</th>
-                                            <th class="p-0 ">ทะเบียนรถ</th>
-                                            <th class="p-0 ">เบอร์ติดต่อ</th>
+                                            <th class="p-0 ">จำนวนซับ</th>
+                                            <th class="p-0 ">จำนวนสินค้า</th>
+                                            <th class="p-0 ">status</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    
                                     <tbody>
                                         @isset($objs)
                                             @foreach ($objs as $item)
-
-                                        <tr id="{{$item->id_q}}">
+                                        
+                                        <tr id="{{$item->id}}">
                                             <td>
                                                 <div class="symbol symbol-50px">
-                                                    @if($item->avatar)
-                                                        @if($item->type_car)
-                                                        <img src="{{ url('images/loadmaster/driver/'.$item->avatar) }}" alt="">
-                                                         @else
-                                                         <img src="{{ url('admin/assets/media/avatars/'.$item->avatar) }}" alt="">
-                                                        @endif
-
-                                                    @else
-                                                    <img src="{{ url('admin/assets/media/svg/avatars/blank.svg') }}" alt="">
+                                                    <img src="{{ url('images/wpnrayong/category/'.$item->image) }}" alt="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->cat_name }}</a>
+                                                <span class="text-muted fw-semibold d-block fs-7">ซับหมวดหมู่</span>
+                                            </td>
+                                           <td>
+                                            {{ $item->subcat }}
+                                           </td>
+                                            <td>
+                                                {{ $item->option }}
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="form-check form-check-solid form-switch form-check-custom fv-row">
+                                                    <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status" 
+                                                    @if($item->status == 1)
+                                                    checked="checked"
                                                     @endif
+                                                    value="1"/>
+                                                    <label class="form-check-label" for="allowmarketing"></label>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="d-flex flex-column">
-                                                    <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->names }}</a>
-                                                    <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
-                                                        <span class="text-dark">รหัสพนักงาน </span>: {{ $item->code_user }}
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                {{ $item->type_car }}
-                                            </td>
-                                            <td>
-                                                {{ $item->no_car }}
-                                            </td>
-                                            <td>
-                                                {{ $item->phone }}
-                                            </td>
-
                                             <td class="text-end">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="{{url('admin/driver/'.$item->id_q.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    <a href="{{url('admin/category/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +134,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/del_driver/'.$item->id_q) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    <a href="{{ url('api/del_cat/'.$item->id) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +152,7 @@
                                             @endforeach
 
                                         @endisset
-
+                                       
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>
@@ -166,7 +162,7 @@
                             @endif
                         </div>
                     </div>
-
+                    
                 </div>
                 <!--end::Content container-->
             </div>
@@ -180,13 +176,13 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->
                 <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
                     <li class="menu-item">
-                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับ โหลดมาสเตอร์ โลจิสติกส์</a>
+                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับวงษ์พาณิชย์</a>
                     </li>
                     <li class="menu-item">
                         <a href="{{ url('contatermct') }}" target="_blank" class="menu-link px-2">นโยบายส่วนบุคคล</a>
@@ -208,7 +204,36 @@
 
 
 <script type="text/javascript">
-
-</script>
+    $(document).ready(function(){
+      $("input:checkbox").change(function() {
+        var user_id = $(this).closest('tr').attr('id');
+    
+        $.ajax({
+                type:'POST',
+                url:'{{url('api/api_post_status_category')}}',
+                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                data: { "user_id" : user_id },
+                success: function(data){
+                  if(data.data.success){
+    
+    
+                    Swal.fire({
+                        text: "ระบบได้ทำการอัพเดทข้อมูลสำเร็จ!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+    
+    
+    
+                  }
+                }
+            });
+        });
+    });
+    </script>
 
 @stop('scripts')

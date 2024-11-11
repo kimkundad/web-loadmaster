@@ -19,4 +19,11 @@ class DashboardController extends Controller
     }
 
 
+    public function indexDri(){
+
+        $sum = 1;
+        return view('admin.dashboardDri.index', compact('sum'));
+    }
+
+
 }

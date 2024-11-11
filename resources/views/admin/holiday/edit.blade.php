@@ -30,7 +30,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            แก้ไขกิจกรรม & ประชาสัมพันธ์สินค้า</h1>
+                            แก้ไขแจ้งวันหยุดสินค้า</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -45,7 +45,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">แก้ไขกิจกรรม & ประชาสัมพันธ์สินค้าใหม่</li>
+                            <li class="breadcrumb-item text-muted">แก้ไขแจ้งวันหยุดสินค้าใหม่</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -70,17 +70,17 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปกิจกรรม & ประชาสัมพันธ์สินค้า</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปแจ้งวันหยุดสินค้า</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/media-image-size.png') }}')">
                                             <!--begin::Preview existing avatar แแ-->
-                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/loadmaster/news/'.$objs->image) }}); width:380px; height:200px"></div>
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/loadmaster/holiday/'.$objs->image) }}); width:380px; height:200px"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
-                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูปกิจกรรม & ประชาสัมพันธ์สินค้า">
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูปแจ้งวันหยุดสินค้า">
                                                 <i class="bi bi-pencil-fill fs-7"></i>
                                                 <!--begin::Inputs-->
                                                 <input type="file" name="image" accept=".png, .jpg, .jpeg" />
@@ -89,12 +89,12 @@
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Cancel-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูปกิจกรรม & ประชาสัมพันธ์สินค้า">
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูปแจ้งวันหยุดสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Cancel-->
                                             <!--begin::Remove-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูปกิจกรรม & ประชาสัมพันธ์สินค้า">
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูปแจ้งวันหยุดสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Remove-->
@@ -104,7 +104,7 @@
                                         <div class="form-text">Allowed file types: png, jpg, jpeg. (800px X 415px)</div>
                                         @if ($errors->has('image'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกรูปกิจกรรม & ประชาสัมพันธ์สินค้า</div>
+                                                <div>กรุณาเลือกรูปแจ้งวันหยุดสินค้า</div>
                                             </div>
                                         @endif
                                         <!--end::Hint-->
@@ -114,15 +114,15 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อกิจกรรม & ประชาสัมพันธ์สินค้า</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อวันหยุด</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="title" class="form-control form-control-lg form-control-solid" placeholder="10 อันดับขยะที่นำมารีไซเคิลมากที่สุด" value="{{ $objs->title }}">
+                                        <input type="text" name="name" class="form-control form-control-lg form-control-solid" placeholder="10 อันดับขยะที่นำมารีไซเคิลมากที่สุด" value="{{ $objs->name }}">
 
-                                        @if ($errors->has('title'))
+                                        @if ($errors->has('name'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกชื่อกิจกรรม & ประชาสัมพันธ์สินค้า</div>
+                                                <div>กรุณากรอกชื่อแจ้งวันหยุดสินค้า</div>
                                             </div>
                                         @endif
                                     </div>
@@ -148,28 +148,12 @@
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
-                                            <input class="form-control form-control-solid ps-12" name="startdate" placeholder="เนื้อหาจะแสดงภายในวันที่กำหนด" id="kt_datepicker_1" value="{{ $objs->startdate }}"/>
+                                            <input class="form-control form-control-solid ps-12" name="day" placeholder="เนื้อหาจะแสดงภายในวันที่กำหนด" id="kt_datepicker_1" value="{{ $objs->day }}"/>
                                         </div>
 
-                                        @if ($errors->has('startdate'))
+                                        @if ($errors->has('day'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาตั้งวันที่แสดงกิจกรรม & ประชาสัมพันธ์สินค้า</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">รายละเอียดแบบย่อ</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="รายละเอียดแบบย่อ..." rows="3" name="sub_title" >{!! $objs->sub_title !!} </textarea>
-                                        @if ($errors->has('sub_title'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกรายละเอียดแบบย่อ</div>
+                                                <div>กรุณาตั้งวันที่แสดงแจ้งวันหยุดสินค้า</div>
                                             </div>
                                         @endif
                                     </div>
@@ -179,23 +163,8 @@
 
 
 
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียด</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
-                                        <textarea name="detail" class="summernote" id="kt_docs_ckeditor_classic" >
-                                            {{ $objs->detail }}
-                                        </textarea>
-                                        @if ($errors->has('detail'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกรายละเอียด</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
+
+
 
 
                                 <div class="row mb-0">

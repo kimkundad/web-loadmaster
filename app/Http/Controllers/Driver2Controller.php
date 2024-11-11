@@ -12,7 +12,7 @@ use Intervention\Image\Facades\Image;
 use Response;
 use Illuminate\Support\Facades\Storage;
 
-class DriverController extends Controller
+class driver2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,7 @@ class DriverController extends Controller
 
             $objs->setPath('');
 
-        return view('admin.driver.index', compact('objs'));
+        return view('admin.driverDri.index', compact('objs'));
     }
 
     /**
@@ -48,8 +48,8 @@ class DriverController extends Controller
     {
         //
         $data['method'] = "post";
-        $data['url'] = url('admin/driver');
-        return view('admin.driver.create', $data);
+        $data['url'] = url('admin/driverDri');
+        return view('admin.driverDri.create', $data);
     }
 
     /**
@@ -81,7 +81,7 @@ class DriverController extends Controller
           $constraint->aspectRatio();
         });
         $img->stream();
-        Storage::disk('do_spaces')->put('loadmaster/driver/'.$image->hashName(), $img, 'public');
+        Storage::disk('do_spaces')->put('loadmaster/driverDri/'.$image->hashName(), $img, 'public');
 
         $user = User::create([
             'name' => $request['name'],
@@ -94,7 +94,6 @@ class DriverController extends Controller
             'provider' => 'email',
             'email_verified_at' => date('Y-m-d H:i:s'),
             'is_admin' => 0,
-            'user_type' => 1,
             'password' => Hash::make($request['password']),
         ]);
 
@@ -104,7 +103,7 @@ class DriverController extends Controller
         ->roles()
         ->attach(Role::where('name', $objs->name)->first());
 
-        return redirect(url('admin/driver'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
+        return redirect(url('admin/driverDri'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
     }
 
     /**
@@ -124,10 +123,10 @@ class DriverController extends Controller
     {
         //
         $objs = User::find($id);
-        $data['url'] = url('admin/driver/'.$id);
+        $data['url'] = url('admin/driverDri/'.$id);
         $data['method'] = "put";
         $data['objs'] = $objs;
-        return view('admin.driver.edit', $data);
+        return view('admin.driverDri.edit', $data);
     }
 
     /**
@@ -168,7 +167,7 @@ class DriverController extends Controller
         }
 
 
-        return redirect(url('admin/driver/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+        return redirect(url('admin/driverDri/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
 
     /**

@@ -62,6 +62,7 @@ class NewConController extends Controller
         return view('admin.news.create', $data);
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
