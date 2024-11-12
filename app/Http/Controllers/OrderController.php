@@ -313,6 +313,8 @@ class OrderController extends Controller
         $data['logis'] = $logis;
 
         $objs = order::find($id);
+        $MyUser = User::find($objs->user_id);
+        $data['MyUser'] = $MyUser;
         $data['url'] = url('admin/myorder/'.$id);
         $data['method'] = "put";
         $data['objs'] = $objs;

@@ -167,7 +167,7 @@
         <div style="width: 100%; text-align: right;">
             <div style="font-size: 13px; line-height: 10px">
                 <p>
-                <b style="font-size: 16px; color: #033169">บริษัท โลคมาสเตอร์ โลจิสติกส์ จำกัด 22</b><br>
+                <b style="font-size: 16px; color: #033169">บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด 22</b><br>
                 305 ซอยพระรามที่ 2 แขวงบางมด เขตจอมทอง กรุงเทพมหานคร 10150<br>
                 โทรศัพท์: 099-276-2487<br>
                 ลขประจำตัวผู้เสียภาษี: 0105567110129</p>
@@ -240,7 +240,7 @@
                                         </div>
                                     </div>
                                     <div style="width: 50%; float:right; text-align: center;">
-                                        <div style="font-size: 13px">ลงนาม บริษัท โลคมาสเตอร์ โลจิสติกส์ จำกัด</div>
+                                        <div style="font-size: 13px">ลงนาม บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</div>
                                         <div
                                             style="justify-content: space-around; align-items: center; display: flex; margin-top: 20px">
                                             <div style="width: 50%; float:left; text-align: center; margin-top: 8px; font-size: 12px">
@@ -263,8 +263,8 @@
 
         {{-- <!-- Footer -->
         <div class="footer" style="width: 100%; display:block">
-            <p style="font-size: 14px; color: #033169 ">บริษัท โลคมาสเตอร์ โลจิสติกส์ จำกัด</p>
-            <p style="line-height: 10px; margin-top:5px">ติดตามสถานะพัสดุได้ทุกที่ ทุกเวลา ด้วยแอปพลิเคชันโลคมาสเตอร์</p>
+            <p style="font-size: 14px; color: #033169 ">บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</p>
+            <p style="line-height: 10px; margin-top:5px">ติดตามสถานะพัสดุได้ทุกที่ ทุกเวลา ด้วยแอปพลิเคชันโหลดมาสเตอร์</p>
             <p style="line-height: 10px">ขอบคุณที่ไว้วางใจในบริการของเรา!</p>
         </div> --}}
     </div>

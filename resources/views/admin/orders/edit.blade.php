@@ -612,6 +612,75 @@
                                 </div>
 
 
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อบริษัทหรือในนามบุคคล (**ที่ใช้รับใบเสร็จ)</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" id="Receiptname" name="Receiptname" class="form-control form-control-lg form-control-solid"
+                                        value="{{ $MyUser->Receiptname }}"
+                                         readonly>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">โทรศัพท์ (**ที่ใช้รับใบเสร็จ)</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" id="Receiptphone" name="Receiptphone" class="form-control form-control-lg form-control-solid"
+                                        value="{{ $MyUser->Receiptphone }}"
+                                         readonly>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">อีเมล (**ที่ใช้รับใบเสร็จ)</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" id="Receiptemail" name="Receiptemail" class="form-control form-control-lg form-control-solid"
+                                        value="{{ $MyUser->Receiptemail }}"
+                                         readonly>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">เลขประจำตัวผู้เสียภาษี</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" id="ReceiptTax" name="ReceiptTax" class="form-control form-control-lg form-control-solid"
+                                        value="{{ $MyUser->ReceiptTax }}"
+                                         readonly>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ที่อยู่ รับใบเสร็จ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <textarea type="text" id="addressTextarea" name="Receiptaddress" style="height: 100px" readonly
+                                        class="form-control form-control-lg form-control-solid"
+                                        >{{ $MyUser->Receiptaddress }}</textarea>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
 
 
                                 <div class="row mb-6">

@@ -13,6 +13,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderDriController;
+use App\Http\Controllers\LogisticsDriController;
 
 
 /*
@@ -92,6 +93,9 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::resource('/admin/logis', LogisticsController::class);
     Route::get('api/del_logis/{id}', [App\Http\Controllers\LogisticsController::class, 'del_logis']);
     Route::post('/api/api_post_status_logis', [App\Http\Controllers\LogisticsController::class, 'api_post_status_logis']);
+
+    Route::resource('/admin/logisDri', LogisticsDriController::class);
+    Route::post('/api/api_post_status_status_Per', [App\Http\Controllers\LogisticsDriController::class, 'api_post_status_status_Per']);
 
     Route::get('admin/setting/', [App\Http\Controllers\SettingController::class, 'index']);
     Route::post('api/post_setting/', [App\Http\Controllers\SettingController::class, 'post_setting']);
