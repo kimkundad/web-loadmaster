@@ -287,6 +287,8 @@ class OrderController extends Controller
     {
         //
 
+
+
         $this->validate($request, [
             'dri_time' => 'required',
             'amount' => 'required',
@@ -296,6 +298,22 @@ class OrderController extends Controller
            $branch = branch::where('id', $request['branch_id'])->first();
            $user = User::where('id', $request['cus_id'])->first();
            $dri = User::where('id', $request['driver_id'])->first();
+
+
+           $service = 0;
+        if(isset($request['service'])){
+            if($request['service'] == 1){
+                $service = 1;
+            }
+        }
+
+
+        $service2 = 0;
+        if(isset($request['service2'])){
+            if($request['service2'] == 1){
+                $service2 = 1;
+            }
+        }
 
            $objs = order::find($id);
            $objs->user_id = $request['cus_id'];
@@ -312,9 +330,10 @@ class OrderController extends Controller
            $objs->remark_re = $request['remark_re'];
            $objs->latitude2 = $request['latitude'];
            $objs->longitude2 = $request['longitude'];
-           $objs->type = $request['typeService'];
+           $objs->type = implode(',', $request['typeService']);
            $objs->size = $request['sizepro'];
            $objs->waffles = $request['waffles'];
+           $objs->machinery = $request['machinery'];
            $objs->o_name = $user->name;
            $objs->dri_date = $request['dri_date'];
 
@@ -334,6 +353,10 @@ class OrderController extends Controller
            }
 
            $objs->order_status = $request['order_status'];
+           $objs->send_status = $request['send_status'];
+           $objs->service = $service;
+           $objs->service2 = $service2;
+           $objs->pay_status = $request['pay_status'];
            $objs->save();
 
            return redirect(url('admin/myorder/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
@@ -345,9 +368,9 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         //
-        $obj = news::find($id);
+        $obj = order::find($id);
         $obj->delete();
 
-        return redirect(url('admin/news/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
+        return redirect(url('admin/myorder/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
     }
 }

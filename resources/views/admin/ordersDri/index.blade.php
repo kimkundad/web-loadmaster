@@ -5,6 +5,7 @@
 @stop
 @section('stylesheet')
 
+
 @stop('stylesheet')
 
 @section('content')
@@ -20,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            รายชื่อคนขับรถทั้งหมด</h1>
+                            ออเดอร์ขนส่งทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -35,15 +36,15 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">รายชื่อคนขับรถทั้งหมด</li>
+                            <li class="breadcrumb-item text-muted">ออเดอร์ขนส่งทั้งหมด</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
                     <!--begin::Actions-->
-                    <div class="d-flex align-items-center gap-2 gap-lg-3">
-                        <a href="{{ url('admin/driverDri/create') }}" class="btn btn-sm fw-bold btn-primary" >
+                    {{-- <div class="d-flex align-items-center gap-2 gap-lg-3">
+                        <a href="{{ url('admin/myorder/create') }}" class="btn btn-sm fw-bold btn-primary" >
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr017.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.3" d="M11 13H7C6.4 13 6 12.6 6 12C6 11.4 6.4 11 7 11H11V13ZM17 11H13V13H17C17.6 13 18 12.6 18 12C18 11.4 17.6 11 17 11Z" fill="currentColor"/>
@@ -51,9 +52,9 @@
                             </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            สร้างใหม่
+                            สร้างออเดอร์ใหม่
                         </a>
-                    </div>
+                    </div> --}}
                     <!--end::Actions-->
                 </div>
                 <!--end::Toolbar container-->
@@ -67,7 +68,7 @@
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">คนขับรถ ทั้งหมด </span>
+                                <span class="card-label fw-bold fs-3 mb-1">ออเดอร์ ทั้งหมด </span>
                                 <span class="text-muted mt-1 fw-semibold fs-7"> จำนวน ( {{ count($objs) }} )</span>
                             </h3>
                         </div>
@@ -79,11 +80,11 @@
                                     <!--begin::Table head superadmin-->
                                     <thead>
                                         <tr>
-                                            <th class="p-0 w-50px"></th>
-                                            <th class="p-0 "></th>
-                                            <th class="p-0 ">ประเภทรถ</th>
-                                            <th class="p-0 ">ทะเบียนรถ</th>
-                                            <th class="p-0 ">เบอร์ติดต่อ</th>
+                                            <th class="p-0 ">เลขออเดอร์</th>
+                                            <th class="p-0 ">ปลายทาง</th>
+                                            <th class="p-0 ">รถขนส่ง</th>
+                                            <th class="p-0 ">เบอร์คนรับของ</th>
+                                            <th class="p-0 ">สถานะ</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
@@ -93,42 +94,52 @@
                                         @isset($objs)
                                             @foreach ($objs as $item)
 
-                                        <tr id="{{$item->id_q}}">
+                                        <tr id="{{$item->id}}">
                                             <td>
-                                                <div class="symbol symbol-50px">
-                                                    @if($item->avatar)
-                                                        @if($item->type_car)
-                                                        <img src="{{ url('images/loadmaster/driver/'.$item->avatar) }}" alt="">
-                                                         @else
-                                                         <img src="{{ url('admin/assets/media/avatars/'.$item->avatar) }}" alt="">
-                                                        @endif
-
-                                                    @else
-                                                    <img src="{{ url('admin/assets/media/svg/avatars/blank.svg') }}" alt="">
-                                                    @endif
-                                                </div>
+                                                #{{ $item->code_order }}
                                             </td>
                                             <td>
                                                 <div class="d-flex flex-column">
-                                                    <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->names }}</a>
+                                                    <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->b_name }}</a>
                                                     <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
-                                                        <span class="text-dark">รหัสพนักงาน </span>: {{ $item->code_user }}
+                                                        <span class="text-dark">ที่อยู่ </span>: {{ $item->b_address }}
                                                     </a>
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ $item->type_car }}
+                                                @if($item->driver_id == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">ยังไม่ระบุคนขับรถ</span>
+                                                @else
+                                                <div class="d-flex flex-column">
+                                                    <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->dri_name }}</a>
+                                                    <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
+                                                        <span class="text-dark">ข้อมูลรถ </span>: {{ $item->dri_type }} , {{ $item->dri_no_car }}
+                                                    </a>
+                                                </div>
+                                                @endif
+
                                             </td>
                                             <td>
-                                                {{ $item->no_car }}
+                                                {{ $item->b_phone }}
                                             </td>
+
                                             <td>
-                                                {{ $item->phone }}
+                                                @if($item->order_status == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">รอดำเดินการ</span>
+                                                @elseif($item->order_status == 1)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">กำลังดำเนินงาน</span>
+                                                @elseif($item->order_status == 2)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-success">ส่งสำเร็จแล้ว</span>
+                                                @elseif($item->order_status == 3)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-danger">เกิดอุบัติเหตุ</span>
+                                                @endif
                                             </td>
+
+
 
                                             <td class="text-end">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="{{url('admin/driverDri/'.$item->id_q.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    <a href="{{url('admin/myorderDri/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +149,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/del_driverDri/'.$item->id_q) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    {{-- <a href="{{ url('api/myorder/'.$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +159,7 @@
                                                             </svg>
                                                         </span>
                                                         <!--end::Svg Icon-->
-                                                    </a>
+                                                    </a> --}}
                                                 </div>
                                             </td>
                                         </tr>

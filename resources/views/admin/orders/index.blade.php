@@ -4,15 +4,7 @@
     <title>บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</title>
 @stop
 @section('stylesheet')
-<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
-<style>
-        body, body, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Prompt', sans-serif !important;
-}
-span, p , li ,strong, option , label, input, a, b {
-    font-family: 'Prompt', sans-serif !important;
-}
-    </style>
+
 
 @stop('stylesheet')
 
@@ -51,7 +43,7 @@ span, p , li ,strong, option , label, input, a, b {
                     </div>
                     <!--end::Page title-->
                     <!--begin::Actions-->
-                    <div class="d-flex align-items-center gap-2 gap-lg-3">
+                    {{-- <div class="d-flex align-items-center gap-2 gap-lg-3">
                         <a href="{{ url('admin/myorder/create') }}" class="btn btn-sm fw-bold btn-primary" >
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr017.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +54,7 @@ span, p , li ,strong, option , label, input, a, b {
                             <!--end::Svg Icon-->
                             สร้างออเดอร์ใหม่
                         </a>
-                    </div>
+                    </div> --}}
                     <!--end::Actions-->
                 </div>
                 <!--end::Toolbar container-->
@@ -92,7 +84,10 @@ span, p , li ,strong, option , label, input, a, b {
                                             <th class="p-0 ">ปลายทาง</th>
                                             <th class="p-0 ">รถขนส่ง</th>
                                             <th class="p-0 ">เบอร์คนรับของ</th>
+                                            <th class="p-0 min-w-100px text-center">ราคา</th>
                                             <th class="p-0 ">สถานะ</th>
+                                            <th class="p-0 ">การจ่ายงาน</th>
+                                            <th class="p-0 ">ชำระเงิน</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
@@ -130,16 +125,35 @@ span, p , li ,strong, option , label, input, a, b {
                                             <td>
                                                 {{ $item->b_phone }}
                                             </td>
+                                             <td class="text-center">
+                                                {{ $item->price }}
+                                            </td>
 
                                             <td>
                                                 @if($item->order_status == 0)
-                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">ยังไม่จ่ายงาน</span>
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">รอดำเดินการ</span>
                                                 @elseif($item->order_status == 1)
                                                 <span class="badge py-3 px-4 fs-7 badge-light-primary">กำลังดำเนินงาน</span>
                                                 @elseif($item->order_status == 2)
                                                 <span class="badge py-3 px-4 fs-7 badge-light-success">ส่งสำเร็จแล้ว</span>
                                                 @elseif($item->order_status == 3)
                                                 <span class="badge py-3 px-4 fs-7 badge-light-danger">เกิดอุบัติเหตุ</span>
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                @if($item->send_status == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">ยังไม่จ่ายงาน</span>
+                                                @elseif($item->send_status == 1)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-success">จ่ายงานแล้ว</span>
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                @if($item->pay_status == 0)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">รอชำระเงิน</span>
+                                                @elseif($item->pay_status == 1)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-success">ชำระเงินแล้ว</span>
                                                 @endif
                                             </td>
 
@@ -155,7 +169,7 @@ span, p , li ,strong, option , label, input, a, b {
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/myorder/'.$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    {{-- <a href="{{ url('api/myorder/'.$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +179,7 @@ span, p , li ,strong, option , label, input, a, b {
                                                             </svg>
                                                         </span>
                                                         <!--end::Svg Icon-->
-                                                    </a>
+                                                    </a> --}}
                                                 </div>
                                             </td>
                                         </tr>

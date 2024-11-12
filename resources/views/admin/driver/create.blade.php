@@ -125,7 +125,7 @@
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="code_user" class="form-control form-control-lg form-control-solid" placeholder="ADS142663" value="{{old('code_user') ? old('code_user') : ''}}">
+                                        <input type="text" name="code_user" class="form-control form-control-lg form-control-solid" placeholder="ADS142663" value="{{ $code }}">
 
                                         @if ($errors->has('code_user'))
                                             <div class="fv-plugins-message-container invalid-feedback">
@@ -136,17 +136,24 @@
                                     <!--end::Col-->
                                 </div>
 
+
+
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ประเภทรถ</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">ประเภทรถ</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="type_car" class="form-control form-control-lg form-control-solid" placeholder="รถกระบะตอนเดียว" value="{{old('type_car') ? old('type_car') : ''}}">
-
-                                        @if ($errors->has('type_car'))
+                                        <select class="form-select" aria-label="Select example" name="cat_id">
+                                            @isset($cat)
+                                            @foreach($cat as $u)
+                                            <option value="{{$u->id}}">{{$u->name}}</option>
+                                            @endforeach
+                                            @endisset
+                                        </select>
+                                        @if ($errors->has('cat_id'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>{{ $errors->first('type_car') }}</div>
+                                                <div>กรุณากรอกเลือกประเภทรถ</div>
                                             </div>
                                         @endif
                                     </div>

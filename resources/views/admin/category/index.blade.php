@@ -1,8 +1,7 @@
 @extends('admin.layouts.template')
 
 @section('title')
-    <title>วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</title>
-    <meta name="description" content=" รายละเอียด วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด">
+    <title>บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</title>
 @stop
 @section('stylesheet')
 
@@ -21,7 +20,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            หมวดหมู่สินค้าทั้งหมด</h1>
+                            หมวดหมู่รถส่งของทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +35,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">หมวดหมู่สินค้า</li>
+                            <li class="breadcrumb-item text-muted">หมวดหมู่รถส่งของ</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -64,7 +63,7 @@
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
-                    
+
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
@@ -80,41 +79,31 @@
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr>
-                                            <th class="p-0 w-50px"></th>
-                                            <th class="p-0 "></th>
-                                            <th class="p-0 ">จำนวนซับ</th>
-                                            <th class="p-0 ">จำนวนสินค้า</th>
+                                            <th class="p-0 ">ชื่อ</th>
+                                            <th class="p-0 ">จำนวนรถส่งของ</th>
                                             <th class="p-0 ">status</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
-                                    
+
                                     <tbody>
                                         @isset($objs)
                                             @foreach ($objs as $item)
-                                        
+
                                         <tr id="{{$item->id}}">
-                                            <td>
-                                                <div class="symbol symbol-50px">
-                                                    <img src="{{ url('images/wpnrayong/category/'.$item->image) }}" alt="">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->cat_name }}</a>
-                                                <span class="text-muted fw-semibold d-block fs-7">ซับหมวดหมู่</span>
-                                            </td>
+
                                            <td>
-                                            {{ $item->subcat }}
+                                            {{ $item->name }}
                                            </td>
                                             <td>
-                                                {{ $item->option }}
+                                                {{ $item->users_count }}
                                             </td>
-                                            
+
                                             <td>
                                                 <div class="form-check form-check-solid form-switch form-check-custom fv-row">
-                                                    <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status" 
+                                                    <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status"
                                                     @if($item->status == 1)
                                                     checked="checked"
                                                     @endif
@@ -152,7 +141,7 @@
                                             @endforeach
 
                                         @endisset
-                                       
+
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>
@@ -162,7 +151,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                 </div>
                 <!--end::Content container-->
             </div>
@@ -176,13 +165,13 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->
                 <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
                     <li class="menu-item">
-                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับวงษ์พาณิชย์</a>
+                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับ โหลดมาสเตอร์ โลจิสติกส์</a>
                     </li>
                     <li class="menu-item">
                         <a href="{{ url('contatermct') }}" target="_blank" class="menu-link px-2">นโยบายส่วนบุคคล</a>
@@ -207,7 +196,7 @@
     $(document).ready(function(){
       $("input:checkbox").change(function() {
         var user_id = $(this).closest('tr').attr('id');
-    
+
         $.ajax({
                 type:'POST',
                 url:'{{url('api/api_post_status_category')}}',
@@ -215,8 +204,8 @@
                 data: { "user_id" : user_id },
                 success: function(data){
                   if(data.data.success){
-    
-    
+
+
                     Swal.fire({
                         text: "ระบบได้ทำการอัพเดทข้อมูลสำเร็จ!",
                         icon: "success",
@@ -226,9 +215,9 @@
                             confirmButton: "btn btn-primary"
                         }
                     });
-    
-    
-    
+
+
+
                   }
                 }
             });

@@ -12,6 +12,8 @@ use App\Http\Controllers\LogisticsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderDriController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +63,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::resource('/admin/myorder', OrderController::class);
 
     Route::resource('/admin/driver', DriverController::class);
+    Route::post('/api/api_post_status_driver', [App\Http\Controllers\MyUserController::class, 'api_post_status_driver']);
+    Route::get('api/del_driver/{id}', [App\Http\Controllers\MyUserController::class, 'del_driver']);
 
     Route::resource('/admin/MyUser', MyUserController::class);
     Route::post('/api/api_post_status_MyUser', [App\Http\Controllers\MyUserController::class, 'api_post_status_MyUser']);
@@ -90,14 +94,30 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::get('admin/setting/', [App\Http\Controllers\SettingController::class, 'index']);
     Route::post('api/post_setting/', [App\Http\Controllers\SettingController::class, 'post_setting']);
 
+
 });
 
 Route::group(['middleware' => ['UserRole:MasterDriver']], function() {
 
     Route::get('/admin/dashboardDri', [App\Http\Controllers\DashboardController::class, 'indexDri']);
-    Route::resource('/admin/driver', DriverController::class);
-    Route::resource('/admin/category', CategoryController::class);
 
+
+
+
+});
+
+
+Route::group(['middleware' => ['UserRole:MasterDriver|superadmin|admin']], function() {
+
+    Route::resource('/admin/category', CategoryController::class);
+    Route::post('/api/api_post_status_category', [App\Http\Controllers\CategoryController::class, 'api_post_status_category']);
+    Route::get('api/del_cat/{id}', [App\Http\Controllers\CategoryController::class, 'del_cat']);
+
+    Route::resource('/admin/driver', DriverController::class);
+    Route::post('/api/api_post_status_driver', [App\Http\Controllers\DriverController::class, 'api_post_status_driver']);
+    Route::get('api/del_driver/{id}', [App\Http\Controllers\DriverController::class, 'del_driver']);
+
+    Route::resource('/admin/myorderDri', OrderDriController::class);
 });
 
 Route::get('/image-proxy', function (Request $request) {

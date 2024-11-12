@@ -19,16 +19,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $objs = category::paginate(30);
+        $objs = category::withCount('users')->paginate(30);
 
-        if(isset($objs)){
-            foreach($objs as $u){
-                $count = User::where('cat_id', $u->id)->count();
-                $u->option = $count;
-            }
-        }
-
-
+        //dd($objs);
         $objs->setPath('');
         $data['objs'] = $objs;
         return view('admin.category.index', compact('objs'));
@@ -81,20 +74,9 @@ class CategoryController extends Controller
         //
 
            $this->validate($request, [
-            'cat_name' => 'required',
-            'image' => 'required'
+            'name' => 'required',
            ]);
 
-           $image = $request->file('image');
-
-           $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
-            $img = Image::make($image->getRealPath());
-            $img->resize(400, 400, function ($constraint) {
-            $constraint->aspectRatio();
-            });
-            $img->stream();
-            Storage::disk('do_spaces')->put('wpnrayong/category/'.$image->hashName(), $img, 'public');
 
 
         $status = 0;
@@ -105,9 +87,7 @@ class CategoryController extends Controller
         }
 
            $objs = new category();
-           $objs->cat_name = $request['cat_name'];
-           $objs->cat_name_en = $request['cat_name_en'];
-           $objs->image = $image->hashName();
+           $objs->name = $request['name'];
            $objs->status = $status;
            $objs->save();
 
@@ -134,8 +114,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        $subcat = subcat::where('cat_id', $id)->where('sub_name', '!=', 'ไม่มีหมวดหมู่')->get();
-        $data['subcat'] = $subcat;
 
         $objs = category::find($id);
         $data['url'] = url('admin/category/'.$id);
@@ -156,11 +134,10 @@ class CategoryController extends Controller
         //
 
            $this->validate($request, [
-            'cat_name' => 'required',
-            'cat_name_en' => 'required'
+            'name' => 'required',
            ]);
 
-           $image = $request->file('image');
+
 
            $status = 0;
             if(isset($request['status'])){
@@ -169,42 +146,14 @@ class CategoryController extends Controller
                 }
             }
 
-           if($image == NULL){
-
-           $objs = category::find($id);
-           $objs->cat_name = $request['cat_name'];
-           $objs->cat_name_en = $request['cat_name_en'];
-           $objs->status = $status;
-           $objs->save();
-
-           }else{
-
-            $img = DB::table('categories')
-          ->where('id', $id)
-          ->first();
-
-          $storage = Storage::disk('do_spaces');
-          $storage->delete('wpnrayong/category/' . $img->image, 'public');
-
-            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
-          $img = Image::make($image->getRealPath());
-          $img->resize(400, 400, function ($constraint) {
-          $constraint->aspectRatio();
-        });
-        $img->stream();
-        Storage::disk('do_spaces')->put('wpnrayong/category/'.$image->hashName(), $img, 'public');
-
 
 
            $objs = category::find($id);
-           $objs->cat_name = $request['cat_name'];
-           $objs->cat_name_en = $request['cat_name_en'];
-           $objs->image = $image->hashName();
+           $objs->name = $request['name'];
            $objs->status = $status;
            $objs->save();
 
-           }
+
 
 
            return redirect(url('admin/category/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
@@ -220,17 +169,27 @@ class CategoryController extends Controller
     {
         //
 
-        $objs = DB::table('categories')
+
+
+        if($id != 1){
+
+            $objs = DB::table('categories')
             ->where('id', $id)
             ->first();
 
-            if(isset($objs->image)){
-                $storage = Storage::disk('do_spaces');
-                $storage->delete('wpnrayong/category/' . $objs->image, 'public');
-            }
 
-        $obj = category::find($id);
-        $obj->delete();
+            User::where('cat_id', $id)
+            ->update([
+                'cat_id' => 1
+             ]);
+
+
+            $obj = category::find($id);
+            $obj->delete();
+
+        }
+
+
 
         return redirect(url('admin/category/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
     }

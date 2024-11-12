@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'fname', 'lname', 'type_car', 'no_car', 'email', 'password', 'email_verified_at', 'is_admin', 'provider', 'provider_id', 'access_token', 'avatar', 'phone', 'address', 'birthday', 'zipcode', 'point', 'idcard', 'code_user', 'shop_id',
+        'name', 'fname', 'lname', 'type_car', 'user_type', 'no_car', 'cat_id', 'email', 'password', 'email_verified_at', 'is_admin', 'provider', 'provider_id', 'access_token', 'avatar', 'phone', 'address', 'birthday', 'zipcode', 'point', 'idcard', 'code_user', 'shop_id',
     ];
 
     public function sendPasswordResetNotification($token)
@@ -30,6 +30,11 @@ class User extends Authenticatable
     public function roles()
     {
       return $this->belongsToMany(Role::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(category::class, 'cat_id');
     }
 
     /**

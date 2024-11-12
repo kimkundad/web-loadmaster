@@ -80,7 +80,7 @@
 
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="{{ url('/admin/myorder') }}">
+                    <a class="menu-link" href="{{ url('/admin/myorderDri') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -95,6 +95,8 @@
                     </a>
                     <!--end:Menu link-->
                 </div>
+
+
 
                 <div class="menu-item">
                     <!--begin:Menu link-->
@@ -202,7 +204,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">หมวดหมู่สินค้า</span>
+                        <span class="menu-title">หมวดหมู่รถส่งของ</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

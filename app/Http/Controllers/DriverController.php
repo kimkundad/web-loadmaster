@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 use Response;
 use Illuminate\Support\Facades\Storage;
+use App\Models\category;
 
 class DriverController extends Controller
 {
@@ -47,6 +48,11 @@ class DriverController extends Controller
     public function create()
     {
         //
+        $cat = category::where('status', 1)->get();
+        $data['cat'] = $cat;
+
+        $code = rand(10000000,99999999);
+        $data['code'] = $code;
         $data['method'] = "post";
         $data['url'] = url('admin/driver');
         return view('admin.driver.create', $data);
@@ -60,7 +66,7 @@ class DriverController extends Controller
         //
         $this->validate($request, [
             'avatar' => 'required',
-            'type_car' => 'required',
+            'cat_id' => 'required',
             'no_car' => 'required',
             'phone' => 'required',
             'name' => ['required', 'string', 'max:255'],
@@ -70,31 +76,32 @@ class DriverController extends Controller
 
         $email = rand(1000000,9999999)."@gmail.com";
 
-
+       // dd($request->all());
         $image = $request->file('avatar');
-
            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
           $img = Image::make($image->getRealPath());
-
           $img->resize(400, 400, function ($constraint) {
           $constraint->aspectRatio();
         });
         $img->stream();
         Storage::disk('do_spaces')->put('loadmaster/driver/'.$image->hashName(), $img, 'public');
 
+        $cat = category::find($request['cat_id']);
+
         $user = User::create([
             'name' => $request['name'],
             'email' => $email,
             'phone' => $request['phone'],
             'code_user' => $request['code_user'],
-            'type_car' => $request['type_car'],
+            'type_car' => $cat->name,
             'no_car' => $request['no_car'],
             'avatar' => $image->hashName(),
             'provider' => 'email',
             'email_verified_at' => date('Y-m-d H:i:s'),
             'is_admin' => 0,
             'user_type' => 1,
+            'status' => 1,
+            'cat_id' => $request['cat_id'],
             'password' => Hash::make($request['password']),
         ]);
 
@@ -123,6 +130,8 @@ class DriverController extends Controller
     public function edit(string $id)
     {
         //
+        $cat = category::where('status', 1)->get();
+        $data['cat'] = $cat;
         $objs = User::find($id);
         $data['url'] = url('admin/driver/'.$id);
         $data['method'] = "put";
@@ -138,20 +147,23 @@ class DriverController extends Controller
         //
 
         $this->validate($request, [
-            'type_car' => 'required',
+            'cat_id' => 'required',
             'no_car' => 'required',
             'phone' => 'required',
             'name' => ['required', 'string', 'max:255']
         ]);
 
+        $cat = category::find($request['cat_id']);
+
         if($request['password'] == null){
 
                 $objs = User::find($id);
                 $objs->name = $request['name'];
-                $objs->type_car = $request['type_car'];
+                $objs->type_car = $cat->name;
                 $objs->phone = $request['phone'];
                 $objs->no_car = $request['no_car'];
                 $objs->code_user = $request['code_user'];
+                $objs->cat_id = $request['cat_id'];
                 $objs->save();
 
         }else{
@@ -160,10 +172,32 @@ class DriverController extends Controller
                 $objs->name = $request['name'];
                 $objs->no_car = $request['no_car'];
                 $objs->phone = $request['phone'];
-                $objs->type_car = $request['type_car'];
+                $objs->type_car = $cat->name;
                 $objs->code_user = $request['code_user'];
+                $objs->cat_id = $request['cat_id'];
                 $objs->password = Hash::make($request['password']);
                 $objs->save();
+
+        }
+
+        $image = $request->file('avatar');
+
+        if($image != NULL){
+
+            $storage = Storage::disk('do_spaces');
+          $storage->delete('loadmaster/driver/' . $objs->avatar, 'public');
+
+           $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+          $img = Image::make($image->getRealPath());
+          $img->resize(400, 400, function ($constraint) {
+          $constraint->aspectRatio();
+        });
+        $img->stream();
+        Storage::disk('do_spaces')->put('loadmaster/driver/'.$image->hashName(), $img, 'public');
+
+        $objs = User::find($id);
+        $objs->avatar = $image->hashName();
+        $objs->save();
 
         }
 
@@ -174,8 +208,28 @@ class DriverController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function del_driver(string $id)
     {
         //
+
+        $objs = DB::table('users')
+            ->where('id', $id)
+            ->first();
+
+            if(isset($objs->avatar)){
+                $storage = Storage::disk('do_spaces');
+                $storage->delete('loadmaster/driver/' . $objs->avatar, 'public');
+            }
+
+
+                 $objs = User::find($id);
+                    $objs->delete();
+
+                    DB::table('role_user')
+                    ->where('user_id', $id)
+                    ->delete();
+
+                return redirect(url('admin/driver/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
+
     }
 }
