@@ -62,6 +62,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     ///admin/branch BranchController
     Route::resource('/admin/myorder', OrderController::class);
 
+    Route::get('/drigeneratePDF/{id}', [OrderController::class, 'drigeneratePDF']);
+
     Route::resource('/admin/driver', DriverController::class);
     Route::post('/api/api_post_status_driver', [App\Http\Controllers\MyUserController::class, 'api_post_status_driver']);
     Route::get('api/del_driver/{id}', [App\Http\Controllers\MyUserController::class, 'del_driver']);

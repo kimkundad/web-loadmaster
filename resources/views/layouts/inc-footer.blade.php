@@ -41,6 +41,15 @@
                                         <a href="{{ url('/') }}">เรียกรถเข้ารับพัสดุ</a>
                                         <a href="{{ url('/') }}">คำถามที่พบบ่อย</a>
                                         <a href="{{ url('/') }}">ศูนย์การเรียนรู้</a>
+
+                                        @if (Auth::guest())
+                            <a href="{{ url('/login') }}">Admin Login</a>
+                            @else
+                            @if(Auth::user()->roles[0]->name == 'superadmin' || Auth::user()->roles[0]->name == 'admin')
+                            <a href="{{ url('/admin/dashboard') }}">Admin Login</a>
+                            @endif
+                            @endif
+
                                     </li>
                                 </ul>
                             </div>

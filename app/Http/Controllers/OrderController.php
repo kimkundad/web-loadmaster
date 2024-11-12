@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\logis;
 use App\Models\ImgStep;
 use PDF;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -26,16 +26,55 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('objs'));
     }
 
-    public function generatePDF()
-    {
-        $data = [
-            'title' => 'ใบเสร็จรับเงิน',
-        ];
 
-        $pdf = \PDF::loadView('admin.orders.document', $data)
+    public function drigeneratePDF(Request $request, string $id)
+    {
+
+            // Fetch order details for the specified order ID and user ID
+            $objs = order::where('id', $id)->first();
+            $user = User::where('id', $objs->user_id)->first();
+            // Check if order exists
+            if (!$objs) {
+                return response()->json(['success' => false, 'message' => 'Order not found'], 404);
+            }
+
+            // Fetch tax settings
+            $set = DB::table('settings')->where('id', 1)->first();
+
+            // Check if settings exist
+            if (!$set) {
+                return response()->json(['success' => false, 'message' => 'Settings not found'], 404);
+            }
+
+            // Calculate tax based on rate from settings
+            $taxRate = $set->tax / 100; // Convert tax rate (e.g., `1` becomes `0.01`)
+            $tax = $objs->price * $taxRate;
+
+            // Prepare data for PDF
+            $data = [
+                'title' => $objs->code_order,
+                'Receiptname' => $user->Receiptname,
+                'Receiptphone' => $user->Receiptphone,
+                'Receiptemail' => $user->Receiptemail,
+                'Receiptaddress' => $user->Receiptaddress,
+                'ReceiptTax' => $user->ReceiptTax,
+                'price' => $objs->price,
+                'date' => Carbon::now(),
+                'code_order' => $objs->code_order,
+                'created_at' => $objs->created_at,
+                'taxText' => $set->tax,
+                'tax' => $tax,
+            ];
+
+
+            // Load the PDF view with the prepared data
+            $pdf = \PDF::loadView('admin.orders.document', $data)
                 ->setPaper('a4', 'portrait'); // Optional: Set paper size and orientation
-             //  return view('admin.orders.document', $data);
-              return $pdf->stream('document.pdf');
+
+            // Download the PDF file
+            return $pdf->download($objs->code_order . '.pdf');
+
+
     }
 
 
