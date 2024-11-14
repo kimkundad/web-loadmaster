@@ -74,6 +74,8 @@ class DriverController extends Controller
             'role' => 'required'
         ]);
 
+       // dd($request['password']);
+
         $email = rand(1000000,9999999)."@gmail.com";
 
        // dd($request->all());
@@ -95,7 +97,8 @@ class DriverController extends Controller
             'code_user' => $request['code_user'],
             'type_car' => $cat->name,
             'no_car' => $request['no_car'],
-            'avatar' => $image->hashName(),
+            'p_x' => $request['password'],
+            'avatar' => 'https://kimspace2.sgp1.cdn.digitaloceanspaces.com/loadmaster/driver/'.$image->hashName(),
             'provider' => 'email',
             'email_verified_at' => date('Y-m-d H:i:s'),
             'is_admin' => 0,
@@ -196,7 +199,7 @@ class DriverController extends Controller
         Storage::disk('do_spaces')->put('loadmaster/driver/'.$image->hashName(), $img, 'public');
 
         $objs = User::find($id);
-        $objs->avatar = $image->hashName();
+        $objs->avatar = 'https://kimspace2.sgp1.cdn.digitaloceanspaces.com/loadmaster/driver/'.$image->hashName();
         $objs->save();
 
         }

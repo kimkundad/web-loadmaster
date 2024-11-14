@@ -97,11 +97,8 @@
                                             <td>
                                                 <div class="symbol symbol-50px">
                                                     @if($item->avatar)
-                                                        @if($item->type_car)
-                                                        <img src="{{ url('images/loadmaster/driver/'.$item->avatar) }}" alt="">
-                                                         @else
-                                                         <img src="{{ url('admin/assets/media/avatars/'.$item->avatar) }}" alt="">
-                                                        @endif
+
+                                                        <img src="{{ $item->avatar }}" alt="">
 
                                                     @else
                                                     <img src="{{ url('admin/assets/media/svg/avatars/blank.svg') }}" alt="">
