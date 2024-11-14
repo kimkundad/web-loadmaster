@@ -52,7 +52,7 @@ class LoginController extends Controller
        return redirect('/');
      }
      if($request->user()->hasRole('MasterDriver')){
-        return redirect('/admin/dashboardDri');
+        return redirect('/admin/myorderDri');
         }
 
 

@@ -49,7 +49,7 @@
 
                 @if(Auth::user()->roles[0]->name == 'MasterDriver')
 
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <!--begin:Menu link-->
                     <a class="menu-link" href="{{ url('admin/dashboardDri') }}">
                         <span class="menu-icon">
@@ -76,7 +76,7 @@
                         <span class="menu-title">Dashboard</span>
                     </a>
                     <!--end:Menu link-->
-                </div>
+                </div> --}}
 
                 <div class="menu-item">
                     <!--begin:Menu link-->

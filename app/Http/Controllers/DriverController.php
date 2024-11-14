@@ -104,6 +104,7 @@ class DriverController extends Controller
             'is_admin' => 0,
             'user_type' => 1,
             'status' => 1,
+            'is_verified' => 1,
             'cat_id' => $request['cat_id'],
             'password' => Hash::make($request['password']),
         ]);
