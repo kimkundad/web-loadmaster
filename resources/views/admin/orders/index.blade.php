@@ -138,6 +138,8 @@
                                                 <span class="badge py-3 px-4 fs-7 badge-light-success">ส่งสำเร็จแล้ว</span>
                                                 @elseif($item->order_status == 3)
                                                 <span class="badge py-3 px-4 fs-7 badge-light-danger">เกิดอุบัติเหตุ</span>
+                                                @elseif($item->order_status == 4)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-danger">ยกเลิกงาน</span>
                                                 @endif
                                             </td>
 
