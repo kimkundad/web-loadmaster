@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\logis;
 use App\Models\ImgStep;
 use PDF;
+use App\Events\OrderStatusUpdated;
 
 use Illuminate\Support\Facades\DB;
 
@@ -117,10 +118,12 @@ class OrderDriController extends Controller
     {
         //
 
+      //  dd($request['driver_id']);
            $dri = User::where('id', $request['driver_id'])->first();
 
            $objs = order::find($id);
            if($dri){
+            $objs->driver_id = $request['driver_id'];
             $objs->dri_name = $dri->name;
             $objs->dri_type = $dri->type_car;
             $objs->dri_no_car = $dri->no_car;
@@ -129,6 +132,13 @@ class OrderDriController extends Controller
            }
            $objs->order_status = $request['order_status'];
            $objs->save();
+
+           if($dri){
+            $obj = order::find($id);
+           event(new OrderStatusUpdated($obj));
+           }
+
+         //  dd($objs);
 
            return redirect(url('admin/myorderDri/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }

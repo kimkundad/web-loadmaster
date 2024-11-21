@@ -11,6 +11,7 @@ use App\Models\ImgStep;
 use PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Events\OrderStatusUpdated;
 
 class OrderController extends Controller
 {
@@ -399,6 +400,12 @@ class OrderController extends Controller
            $objs->service2 = $service2;
            $objs->pay_status = $request['pay_status'];
            $objs->save();
+
+           if($dri){
+            $obj = order::find($id);
+            event(new OrderStatusUpdated($obj));
+           //dd('55');
+           }
 
            return redirect(url('admin/myorder/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
