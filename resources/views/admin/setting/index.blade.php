@@ -51,7 +51,8 @@
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
-                    <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ url('api/post_setting') }}" enctype="multipart/form-data">
+                    <form id="kt_account_profile_details_form" class="form" method="POST"
+                        action="{{ url('api/post_setting') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card card-xl-stretch mb-5 mb-xl-8">
 
@@ -61,11 +62,14 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ภาษีมูลค่าเพิ่ม ณ ที่จ่าย อัตรา %</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ภาษีมูลค่าเพิ่ม ณ
+                                        ที่จ่าย อัตรา %</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="tax" class="form-control form-control-lg form-control-solid" placeholder="1" value="{{ $objs->tax }}">
+                                        <input type="text" name="tax"
+                                            class="form-control form-control-lg form-control-solid" placeholder="1"
+                                            value="{{ $objs->tax }}">
 
                                         @if ($errors->has('tax'))
                                             <div class="fv-plugins-message-container invalid-feedback">
@@ -81,11 +85,14 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ยกของจัดเรียงชั้น1 ราคาชิ้นละ ? บาท</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ยกของจัดเรียงชั้น1
+                                        ราคาชิ้นละ ? บาท</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="box_service1" class="form-control form-control-lg form-control-solid" placeholder="10" value="{{ $objs->box_service1 }}">
+                                        <input type="text" name="box_service1"
+                                            class="form-control form-control-lg form-control-solid" placeholder="10"
+                                            value="{{ $objs->box_service1 }}">
 
                                         @if ($errors->has('box_service1'))
                                             <div class="fv-plugins-message-container invalid-feedback">
@@ -99,11 +106,14 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ยกของจัดเรียงชั้น2 1-20ชิ้น ราคาชิ้นละ ? บาท</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ยกของจัดเรียงชั้น2
+                                        1-20ชิ้น ราคาชิ้นละ ? บาท</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="box_service2" class="form-control form-control-lg form-control-solid" placeholder="5" value="{{ $objs->box_service2 }}">
+                                        <input type="text" name="box_service2"
+                                            class="form-control form-control-lg form-control-solid" placeholder="5"
+                                            value="{{ $objs->box_service2 }}">
 
                                         @if ($errors->has('box_service2'))
                                             <div class="fv-plugins-message-container invalid-feedback">
@@ -119,11 +129,15 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ราคายกของจัดเรียงขึ้นชั้น2 21 ชิ้นขึ้นไป คิดราคาเหมา 300บาทค่ะ🫶🏻🫶🏻</label>
+                                    <label
+                                        class="col-lg-4 col-form-label required fw-semibold fs-6">ราคายกของจัดเรียงขึ้นชั้น2
+                                        21 ชิ้นขึ้นไป คิดราคาเหมา 300บาทค่ะ🫶🏻🫶🏻</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="box_service3" class="form-control form-control-lg form-control-solid" placeholder="300" value="{{ $objs->box_service3 }}">
+                                        <input type="text" name="box_service3"
+                                            class="form-control form-control-lg form-control-solid" placeholder="300"
+                                            value="{{ $objs->box_service3 }}">
 
                                         @if ($errors->has('box_service3'))
                                             <div class="fv-plugins-message-container invalid-feedback">
@@ -135,9 +149,9 @@
                                 </div>
 
 
-                            <h3 class="card-title align-items-start flex-column">
-														<span class="fw-bold mb-2 text-dark">ตั้งค่าธนาคาร</span>
-													</h3>
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="fw-bold mb-2 text-dark">ตั้งค่าธนาคาร</span>
+                                </h3>
 
 
                                 <div class="row mb-6">
@@ -146,7 +160,10 @@
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="bankName" class="form-control form-control-lg form-control-solid" placeholder="บรรจุภัณฑ์เพื่อสิ่งแวดล้อม จำกัด (มหาชน)" value="{{ $objs->bankName }}">
+                                        <input type="text" name="bankName"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="บรรจุภัณฑ์เพื่อสิ่งแวดล้อม จำกัด (มหาชน)"
+                                            value="{{ $objs->bankName }}">
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -157,7 +174,9 @@
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="bankNo" class="form-control form-control-lg form-control-solid" placeholder="088-1-05999-1" value="{{ $objs->bankNo }}">
+                                        <input type="text" name="bankNo"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="088-1-05999-1" value="{{ $objs->bankNo }}">
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -168,7 +187,9 @@
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="bankType" class="form-control form-control-lg form-control-solid" placeholder="ออมทรัพย์" value="{{ $objs->bankType }}">
+                                        <input type="text" name="bankType"
+                                            class="form-control form-control-lg form-control-solid" placeholder="ออมทรัพย์"
+                                            value="{{ $objs->bankType }}">
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -179,7 +200,9 @@
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="bankMain" class="form-control form-control-lg form-control-solid" placeholder="ธนาคารกสิกรไทย" value="{{ $objs->bankMain }}">
+                                        <input type="text" name="bankMain"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="ธนาคารกสิกรไทย" value="{{ $objs->bankMain }}">
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -192,12 +215,17 @@
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
                                         <!--begin::Image input-->
-                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('admin/assets/media/svg/avatars/blank.svg') }}')">
+                                        <div class="image-input image-input-outline" data-kt-image-input="true"
+                                            style="background-image: url('{{ url('admin/assets/media/svg/avatars/blank.svg') }}')">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ $objs->bankImage }})"></div>
+                                            <div class="image-input-wrapper w-125px h-125px"
+                                                style="background-image: url({{ $objs->bankImage }})"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
-                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูปสินค้า">
+                                            <label
+                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                title="เปลี่ยน รูปสินค้า">
                                                 <i class="bi bi-pencil-fill fs-7"></i>
                                                 <!--begin::Inputs-->
                                                 <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
@@ -206,12 +234,18 @@
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Cancel-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูปสินค้า">
+                                            <span
+                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                                title="ยกเลิก รูปสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Cancel-->
                                             <!--begin::Remove-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูปสินค้า">
+                                            <span
+                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                                title="ลบ รูปสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Remove-->
@@ -230,13 +264,72 @@
                                 </div>
 
 
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="fw-bold mb-2 text-dark">ตั้งค่า app + website</span>
+                                </h3>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">เบอร์ติดต่อบริษัท</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="phone"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="เบอร์ติดต่อบริษัท" value="{{ $objs->phone }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">อีเมล</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="email"
+                                            class="form-control form-control-lg form-control-solid"
+                                             value="{{ $objs->email }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อไลน์</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="line_oa"
+                                            class="form-control form-control-lg form-control-solid"
+                                             value="{{ $objs->line_oa }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">url ไลน์</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="line_oa_url"
+                                            class="form-control form-control-lg form-control-solid"
+                                             value="{{ $objs->line_oa_url }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
 
 
 
                             </div>
                             <div class="card-footer d-flex justify-content-end py-6 px-9">
                                 <button type="reset" class="btn btn-light btn-active-light-primary me-2">ยกเลิก</button>
-                                <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">บันทึกข้อมูล</button>
+                                <button type="submit" class="btn btn-primary"
+                                    id="kt_account_profile_details_submit">บันทึกข้อมูล</button>
                             </div>
                         </div>
                     </form>
@@ -253,13 +346,15 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท โหลดมาสเตอร์ โลจิสติกส์ จำกัด</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท โหลดมาสเตอร์
+                        โลจิสติกส์ จำกัด</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->
                 <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
                     <li class="menu-item">
-                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับ โหลดมาสเตอร์ โลจิสติกส์</a>
+                        <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับ โหลดมาสเตอร์
+                            โลจิสติกส์</a>
                     </li>
                     <li class="menu-item">
                         <a href="{{ url('contatermct') }}" target="_blank" class="menu-link px-2">นโยบายส่วนบุคคล</a>

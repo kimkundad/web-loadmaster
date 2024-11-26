@@ -32,6 +32,11 @@ class SettingController extends Controller
             $objs->bankNo = $request['bankNo'];
             $objs->bankType = $request['bankType'];
             $objs->bankMain = $request['bankMain'];
+
+            $objs->line_oa = $request['line_oa'];
+            $objs->line_oa_url = $request['line_oa_url'];
+            $objs->phone = $request['phone'];
+            $objs->email = $request['email'];
             $objs->save();
 
 
