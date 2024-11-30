@@ -339,6 +339,8 @@ class OrderController extends Controller
         'title' => $message['title'],
         'body' => $message['body'],
         'data' => $message['data'],
+        'icon' => 'https://loadmasterth.com/img/iconNoti.png', // ไอคอนสำหรับ Notification
+        'image' => 'https://loadmasterth.com/img/iconNoti2.png', // รูปภาพใหญ่
     ]);
 
     if ($response->failed()) {
@@ -348,6 +350,7 @@ class OrderController extends Controller
         ]);
     }
 }
+
 
 
     public function update(Request $request, string $id)
