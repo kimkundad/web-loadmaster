@@ -27,7 +27,7 @@ class OrderStatusUpdated
 
         // ส่ง Event ไปยัง Socket.IO Server
         $client = new Client();
-        $response = $client->post('https://dd8a-124-120-26-97.ngrok-free.app', [
+        $response = $client->post('https://chat.loadmasterth.com', [
             'json' => [
                 'event' => 'order-update', // Event Name
                 'data' => [

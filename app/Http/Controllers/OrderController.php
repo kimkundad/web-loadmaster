@@ -8,10 +8,13 @@ use App\Models\branch;
 use App\Models\User;
 use App\Models\logis;
 use App\Models\ImgStep;
+use App\Models\noUserToken;
+
 use PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Events\OrderStatusUpdated;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -325,11 +328,31 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+
+     private function sendNotification($expoPushToken, $message)
+{
+    $endpoint = 'https://exp.host/--/api/v2/push/send';
+
+    $response = Http::post($endpoint, [
+        'to' => $expoPushToken,
+        'title' => $message['title'],
+        'body' => $message['body'],
+        'data' => $message['data'],
+    ]);
+
+    if ($response->failed()) {
+        Log::error('Failed to send notification', [
+            'token' => $expoPushToken,
+            'response' => $response->body(),
+        ]);
+    }
+}
+
+
     public function update(Request $request, string $id)
     {
         //
-
-
 
         $this->validate($request, [
             'dri_time' => 'required',
@@ -337,7 +360,6 @@ class OrderController extends Controller
             'price' => 'required'
            ]);
 
-           $branch = branch::where('id', $request['branch_id'])->first();
            $user = User::where('id', $request['cus_id'])->first();
            $dri = User::where('id', $request['driver_id'])->first();
 
@@ -358,6 +380,30 @@ class OrderController extends Controller
         }
 
            $objs = order::find($id);
+
+           if ($objs->noti == 0) {
+            $objs->noti = 1;
+
+            if($request['order_status'] == 1){
+
+                $userToken = noUserToken::where('userId', $request['cus_id'])->first();
+
+            if ($userToken && $userToken->token) {
+                // ส่ง Notification
+                $this->sendNotification($userToken->token, [
+                    'title' => 'Order Updated',
+                    'body' => 'Your order has been updated successfully.',
+                    'data' => ['order_id' => $id],
+                ]);
+            }
+
+            }
+
+
+           }else{
+
+           }
+
            $objs->user_id = $request['cus_id'];
            $objs->branch_id = $request['branch_id'];
            $objs->province2 = $request['province2'];
@@ -399,6 +445,7 @@ class OrderController extends Controller
            $objs->service = $service;
            $objs->service2 = $service2;
            $objs->pay_status = $request['pay_status'];
+
            $objs->save();
 
            if($dri){
