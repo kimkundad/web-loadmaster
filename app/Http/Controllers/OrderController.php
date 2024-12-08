@@ -391,9 +391,9 @@ class OrderController extends Controller
             if($request['order_status'] == 1){
 
                 $notiNew = new notiNew();
-                $objs->user_id = $request['cus_id'];
-                $objs->header = 'กำลังเตรียมพัสดุ';
-                $objs->message = '#'.$objs->code_order.' คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ';
+                $notiNew->user_id = $request['cus_id'];
+                $notiNew->header = 'กำลังเตรียมพัสดุ';
+                $notiNew->message = '#'.$objs->code_order.' คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ';
                 $notiNew->save();
 
                 $userToken = noUserToken::where('userId', $request['cus_id'])->first();
