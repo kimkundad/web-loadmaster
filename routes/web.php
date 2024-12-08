@@ -84,6 +84,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
     Route::post('api/upload_img', [NewConController::class, 'upload_img']);
 
     Route::get('admin/contact/', [App\Http\Controllers\ContactController::class, 'index']);
+    Route::get('admin/chat/{id}', [App\Http\Controllers\ContactController::class, 'chat']);
+    Route::post('admin/storeMessage', [App\Http\Controllers\ContactController::class, 'storeMessage']);
     Route::post('/api/api_post_status_contact', [App\Http\Controllers\ContactController::class, 'api_post_status_contact']);
 
     Route::resource('/admin/size', SizeController::class);

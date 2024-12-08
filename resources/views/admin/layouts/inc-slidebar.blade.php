@@ -209,7 +209,7 @@
                     <!--end:Menu link-->
                 </div>
 
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <!--begin:Menu link-->
                     <a class="menu-link" href="{{ url('admin/product') }}">
                         <span class="menu-icon">
@@ -230,9 +230,9 @@
                         <span class="menu-title">สินค้าทั้งหมด</span>
                     </a>
                     <!--end:Menu link-->
-                </div>
+                </div> --}}
 
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <!--begin:Menu link-->
                     <a class="menu-link" href="{{ url('admin/alliance') }}">
                         <span class="menu-icon">
@@ -253,7 +253,7 @@
                         <span class="menu-title">พันธมิตร</span>
                     </a>
                     <!--end:Menu link-->
-                </div>
+                </div> --}}
 
                 <div class="menu-item">
                     <!--begin:Menu link-->
