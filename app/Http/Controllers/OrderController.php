@@ -353,6 +353,21 @@ class OrderController extends Controller
 }
 
 
+public function formatDateThai($date)
+    {
+        $date = Carbon::parse($date); // เพิ่ม 2 วันจากวันที่ที่ให้มา
+        $day = $date->day;
+        $month = $date->format('n'); // ใช้เลขเดือน 1-12
+        $year = $date->year + 543; // แปลงเป็น พ.ศ.
+
+        // ชื่อเดือนภาษาไทย
+        $thaiMonths = ["", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+        $monthThai = $thaiMonths[$month];
+
+        return "$day $monthThai $year";
+    }
+
+
 
     public function update(Request $request, string $id)
     {
@@ -394,6 +409,7 @@ class OrderController extends Controller
                 $notiNew->user_id = $request['cus_id'];
                 $notiNew->header = 'กำลังเตรียมพัสดุ';
                 $notiNew->message = '#'.$objs->code_order.' คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ';
+                $notiNew->dateThai = $this->formatDateThai(Carbon::now());
                 $notiNew->save();
 
                 $userToken = noUserToken::where('userId', $request['cus_id'])->first();
