@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\logis;
 use App\Models\ImgStep;
 use App\Models\noUserToken;
+use App\Models\notiNew;
 
 use PDF;
 use Carbon\Carbon;
@@ -389,16 +390,22 @@ class OrderController extends Controller
 
             if($request['order_status'] == 1){
 
+                $notiNew = new notiNew();
+                $objs->user_id = $request['cus_id'];
+                $objs->header = 'กำลังเตรียมพัสดุ';
+                $objs->message = '#'.$objs->code_order.' คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ';
+                $notiNew->save();
+
                 $userToken = noUserToken::where('userId', $request['cus_id'])->first();
 
-            if ($userToken && $userToken->token) {
-                // ส่ง Notification
-                $this->sendNotification($userToken->token, [
-                    'title' => 'Order Updated',
-                    'body' => 'Your order has been updated successfully.',
-                    'data' => ['order_id' => $id],
-                ]);
-            }
+                if ($userToken && $userToken->token) {
+                    // ส่ง Notification
+                    $this->sendNotification($userToken->token, [
+                        'title' => 'กำลังเตรียมพัสดุ',
+                        'body' =>  '#'.$objs->code_order.' คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ',
+                        'data' => ['order_id' => $id],
+                    ]);
+                }
 
             }
 
