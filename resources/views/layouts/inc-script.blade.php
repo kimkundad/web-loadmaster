@@ -29,5 +29,5 @@
 
     <script src='https://www.google.com/recaptcha/api.js?hl=th' async defer></script>
 
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
