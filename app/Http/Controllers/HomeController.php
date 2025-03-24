@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\news;
 use Illuminate\Support\Facades\DB;
 use App\Models\contact;
+use Exception;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,190 @@ class HomeController extends Controller
 
         return view('blog_detail', $data);
       }
+
+
+
+      public function getOrderByID(Request $request){
+
+        try{
+
+
+            $order = DB::table('orders')
+            ->where('code_order', $request->code_order)
+            ->first();
+
+            $timeLine = [];
+
+            if ($order) {
+                if ($order->order_status == 1) {
+                    // Timeline for code_order = 1
+
+                    if ($order->status_dri == 1) {
+                    $timeLine = [
+                        [
+                            'id' => '1',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'อยู่ระหว่างการขนส่ง',
+                            'description' => 'พัสดุออกจากคลังสินค้า ไปยัง จ.สมุทรปราการ - '. $order->b_address,
+                            'active' => true,
+                            'icon' => 'local-shipping',
+                            'statusEn' => 'The product is in transit.',
+                            'descriptionEn' => 'Parcels leave the warehouse to Samut Prakan Province. - '. $order->b_address,
+                            'statusCn' => '在途中',
+                            'descriptionCn' => '包裹离开仓库发往北榄府。 - '. $order->b_address,
+                        ],
+                        [
+                            'id' => '2',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'กำลังเตรียมพัสดุ',
+                            'description' => 'คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ',
+                            'active' => false,
+                            'icon' => 'inventory',
+                            'statusEn' => 'Preparing the package',
+                            'descriptionEn' => 'Drivers are at the warehouse to load products into vehicles.',
+                            'statusCn' => '准备包裹',
+                            'descriptionCn' => '司机在仓库将产品装载到车辆上。',
+                        ],
+                        [
+                            'id' => '3',
+                            'date' => $order->created_at,
+                            'status' => 'กำลังดำเนินการ',
+                            'description' => 'ระบบกำลังหาคนขับรถออกไปรับพัสดุจากคลังสินค้า',
+                            'active' => false,
+                            'icon' => 'pending',
+                            'statusEn' => 'in progress',
+                            'descriptionEn' => 'The system is looking for a driver to pick up a package from the warehouse.',
+                            'statusCn' => '进行中',
+                            'descriptionCn' => '系统正在寻找司机从仓库提取包裹。',
+                        ],
+                    ];
+                }else{
+
+                    $timeLine = [
+                        [
+                            'id' => '1',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'อยู่ระหว่างการขนส่ง',
+                            'description' => 'พัสดุออกจากคลังสินค้า ไปยัง จ.สมุทรปราการ - '. $order->b_address,
+                            'active' => true,
+                            'icon' => 'local-shipping',
+                            'statusEn' => 'The product is in transit.',
+                            'descriptionEn' => 'Parcels leave the warehouse to Samut Prakan Province. - '. $order->b_address,
+                            'statusCn' => '在途中',
+                            'descriptionCn' => '包裹离开仓库发往北榄府。 - '. $order->b_address,
+                        ],
+                        [
+                            'id' => '2',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'กำลังเตรียมพัสดุ',
+                            'description' => 'คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ',
+                            'active' => false,
+                            'icon' => 'inventory',
+                            'statusEn' => 'Preparing the package',
+                            'descriptionEn' => 'Drivers are at the warehouse to load products into vehicles.',
+                            'statusCn' => '准备包裹',
+                            'descriptionCn' => '司机在仓库将产品装载到车辆上。',
+                        ],
+                        [
+                            'id' => '3',
+                            'date' => $order->created_at,
+                            'status' => 'กำลังดำเนินการ',
+                            'description' => 'ระบบกำลังหาคนขับรถออกไปรับพัสดุจากคลังสินค้า',
+                            'active' => false,
+                            'icon' => 'pending',
+                            'statusEn' => 'in progress',
+                            'descriptionEn' => 'The system is looking for a driver to pick up a package from the warehouse.',
+                            'statusCn' => '进行中',
+                            'descriptionCn' => '系统正在寻找司机从仓库提取包裹。',
+                        ],
+                    ];
+
+                }
+
+
+                } else if ($order->order_status == 2) {
+                    // Timeline for code_order = 2
+                    $timeLine = [
+                        [
+                            'id' => '4',
+                            'date' => $order->time_step3,
+                            'status' => 'จัดส่งสำเร็จ',
+                            'description' => 'พัสดุถูกจัดส่งสำเร็จถึงปลายทาง',
+                            'active' => true,
+                            'icon' => 'done',
+                            'statusEn' => 'Successful delivery',
+                            'descriptionEn' => 'The package was successfully delivered to its destination.',
+                            'statusCn' => '发货成功',
+                            'descriptionCn' => '包裹已成功送达目的地。',
+                        ],
+                        [
+                            'id' => '1',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'อยู่ระหว่างการขนส่ง',
+                            'description' => 'พัสดุออกจากคลังสินค้า ไปยัง จ.สมุทรปราการ - '. $order->b_address,
+                            'active' => true,
+                            'icon' => 'local-shipping',
+                            'statusEn' => 'The product is in transit.',
+                            'descriptionEn' => 'Parcels leave the warehouse to Samut Prakan Province. - '. $order->b_address,
+                            'statusCn' => '在途中',
+                            'descriptionCn' => '包裹离开仓库发往北榄府。 - '. $order->b_address,
+                        ],
+                        [
+                            'id' => '2',
+                            'date' => '04-11-2024 21:56',
+                            'status' => 'กำลังเตรียมพัสดุ',
+                            'description' => 'คนขับรถอยู่คลังสินค้าเพื่อโหลดสินค้าขึ้นรถ',
+                            'active' => false,
+                            'icon' => 'inventory',
+                            'statusEn' => 'Preparing the package',
+                            'descriptionEn' => 'Drivers are at the warehouse to load products into vehicles.',
+                            'statusCn' => '准备包裹',
+                            'descriptionCn' => '司机在仓库将产品装载到车辆上。',
+                        ],
+                        [
+                            'id' => '3',
+                            'date' => $order->created_at,
+                            'status' => 'กำลังดำเนินการ',
+                            'description' => 'ระบบกำลังหาคนขับรถออกไปรับพัสดุจากคลังสินค้า',
+                            'active' => false,
+                            'icon' => 'pending',
+                            'statusEn' => 'in progress',
+                            'descriptionEn' => 'The system is looking for a driver to pick up a package from the warehouse.',
+                            'statusCn' => '进行中',
+                            'descriptionCn' => '系统正在寻找司机从仓库提取包裹。',
+                        ],
+
+                    ];
+                } else if ($order->order_status == 0) {
+                    // Timeline for code_order = 0
+                    $timeLine = [
+                        [
+                            'id' => '3',
+                            'date' => $order->created_at,
+                            'status' => 'กำลังดำเนินการ',
+                            'description' => 'ระบบกำลังหาคนขับรถออกไปรับพัสดุจากคลังสินค้า',
+                            'active' => false,
+                            'icon' => 'pending',
+                            'statusEn' => 'in progress',
+                            'descriptionEn' => 'The system is looking for a driver to pick up a package from the warehouse.',
+                            'statusCn' => '进行中',
+                            'descriptionCn' => '系统正在寻找司机从仓库提取包裹。',
+                        ],
+                    ];
+                }
+            }
+
+
+            return response()->json([
+                'order' => $order,
+                'timeline' => $timeLine
+            ]);
+
+        }catch(Exception $e){
+            return response()->json(['success'=>false,'message'=>'something went wrong']);
+        }
+
+    }
 
 
 

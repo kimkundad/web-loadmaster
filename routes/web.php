@@ -43,6 +43,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/getOrderByID', [App\Http\Controllers\HomeController::class, 'getOrderByID'])->name('getOrderByID');
+
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 Route::get('/news', [App\Http\Controllers\HomeController::class, 'news'])->name('news');
