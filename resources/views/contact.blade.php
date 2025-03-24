@@ -170,7 +170,16 @@
                 setTimeout(function(){
                     $.LoadingOverlay("hide");
                 }, 0);
-                $('#success_popup').modal('show');
+             //   $('#success_popup').modal('show');
+
+
+             Swal.fire({
+                title: "ส่งข้อความสำเร็จ!",
+                icon: "success",
+                draggable: true
+                });
+
+
                 $("#name").val('');
                 $("#massage").val('');
                 $("#email").val('');
