@@ -90,7 +90,7 @@ class HomeController extends Controller
            $objs->name = $request['name'];
            $objs->email = $request['email'];
            $objs->phone = $request['phone'];
-           $objs->type = $request['type'];
+           $objs->subject = $request['subject'];
            $objs->messenger = $request['massage'];
            $objs->save();
 
