@@ -80,7 +80,8 @@ class HomeController extends Controller
         return response()->json([
           'data' => [
             'status' => 100,
-            'msg' => 'This user was not verified by recaptcha_1.'
+            'msg' => 'This user was not verified by recaptcha_1.',
+            'data' => $response
           ]
         ]);
 
