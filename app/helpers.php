@@ -101,7 +101,7 @@ function get_data_category(){
             $u->option = $sub;
         }
     }
-    
+
     return $objs;
 }
 

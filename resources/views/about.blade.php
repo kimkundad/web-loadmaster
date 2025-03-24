@@ -40,52 +40,48 @@
     <!-- About Section  -->
 
     <div class="about-area section-padding">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-5 col-lg-5">
-                    <div class="about-img wow fadeInRight animated" data-wow-delay="100ms">
-                        <img src="{{ url('home/assets/img/about/1.jpg') }}" alt="">
-
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-5 col-lg-5">
+                <div class="about-img wow fadeInRight animated" data-wow-delay="100ms">
+                    <img src="{{ url('home/assets/img/about/1.jpg') }}" alt="">
                 </div>
-                <div class="col-xl-7 col-lg-7">
-                    <div class="about-content-wrap">
-                        <div class="section-title">
-                            <p>Entire Domestic and International Courier Services</p>
-                            <h2>
-                                We Are Providing best way Of Courier & Parcel Delivery!
-                            </h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="row">
-                                <div class="col-12 col-lg-7">
-                                    <div class="about-content-left">
-                                        <p class="highlight mb-30">
-                                            We provide the trustworthy to deliver any packages with our latest
-                                            technologies, also provide secured & on time service!
-                                        </p>
-                                        <p>
-                                            Courier companies and delivery agency stay on the ground and do most of the authority to ensure that customers get their orders on time, is greatly dependent on the kind of courier company.
-                                        </p>
-
-                                    </div>
+            </div>
+            <div class="col-xl-7 col-lg-7">
+                <div class="about-content-wrap">
+                    <div class="section-title">
+                        <p>บริการจัดส่งพัสดุทั้งในประเทศและระหว่างประเทศ</p>
+                        <h2>เราคือทางเลือกที่ดีที่สุดสำหรับการจัดส่งพัสดุและเอกสารของคุณ</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="row">
+                            <div class="col-12 col-lg-7">
+                                <div class="about-content-left">
+                                    <p class="highlight mb-30">
+                                        เราให้บริการจัดส่งพัสดุด้วยความน่าเชื่อถือ ใช้เทคโนโลยีที่ทันสมัย พร้อมความปลอดภัย และตรงต่อเวลาในทุกการจัดส่ง
+                                    </p>
+                                    <p>
+                                        บริษัทขนส่งและผู้ให้บริการจัดส่งพัสดุเป็นส่วนสำคัญที่ทำให้ลูกค้าได้รับของตรงเวลา
+                                        ประสิทธิภาพของบริการขึ้นอยู่กับมาตรฐานของบริษัทขนส่งที่คุณเลือก
+                                    </p>
                                 </div>
-                                <div class="col-12 col-lg-5">
-                                    <div class="about-content-right">
-                                        <p>
-                                            What service Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, fugiat!?
-                                        </p>
-                                        <ul class="list-unstyled feature-list mt-30">
-                                            <li>
-                                                <i class="las la-check"></i>Reliability and
-                                                Trustworthy
-                                            </li>
-                                            <li>
-                                                <i class="las la-check"></i>Fast & Secured Deliveries
-                                            </li>
-                                            <li><i class="las la-check"></i>World Wide Shipping</li>
-                                        </ul>
-                                    </div>
+                            </div>
+                            <div class="col-12 col-lg-5">
+                                <div class="about-content-right">
+                                    <p>
+                                        บริการของเราครอบคลุมทุกความต้องการด้านการขนส่งพัสดุ ไม่ว่าจะเป็นเอกสารหรือสินค้า
+                                    </p>
+                                    <ul class="list-unstyled feature-list mt-30">
+                                        <li>
+                                            <i class="las la-check"></i> มั่นใจได้ในความน่าเชื่อถือ
+                                        </li>
+                                        <li>
+                                            <i class="las la-check"></i> จัดส่งรวดเร็วและปลอดภัย
+                                        </li>
+                                        <li>
+                                            <i class="las la-check"></i> บริการจัดส่งทั่วโลก
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -94,194 +90,105 @@
             </div>
         </div>
     </div>
+</div>
+
 
 
     <!-- Feature Section  -->
 
     <div class="feature-area dark-bg section-padding">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-5">
-                    <div class="section-title">
-                        <p>Secured, Fastest & Reliable Delivery Service!</p>
-                        <h2 class="text-white">
-                            Since during our launch, to deliver high value package.
-                        </h2>
-                    </div>
-                </div>
-                <div class="offset-xl-1 col-xl-5 col-lg-6 offset-lg-1">
-                    <div class="feature-right-content">
-                        <p class="text-white">
-                            Company providing its own fulfilment to a domestic depot, which is then picked up by the courier and distributed to customers, or couriers pick up packages directly from the vendor.
-                        </p>
-                        <p class="text-white">
-                            The process of courier or parcel delivery depends on the company, contract, location and a variety of other factors.
-                        </p>
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-5">
+                <div class="section-title">
+                    <p>บริการขนส่งที่ปลอดภัย รวดเร็ว และเชื่อถือได้!</p>
+                    <h2 class="text-white">
+                        ตั้งแต่วันแรกของเรา เรามุ่งมั่นส่งมอบพัสดุที่มีคุณค่าให้ถึงปลายทางอย่างปลอดภัย
+                    </h2>
                 </div>
             </div>
-
-            <div class="feature-item-wrap">
-                <div class="feature-slider owl-carousel">
-                    <div class="feature-single wow fadeInLeft animated" data-wow-delay="100ms">
-                        <div class="feature-icon">
-                            <img src="{{ url('home/assets/img/icon/feature/1.png') }}" alt="" >
-                        </div>
-                        <div class="feature-title">
-                            <h5>Free Estimate</h5>
-                        </div>
-                        <div class="feature-desc">
-                            <p>Courier services will package according to customers needs.
-                            </p>
-                        </div>
-                        <a href="services.html"><i class="las la-arrow-right"></i></a>
-                    </div>
-                    <div class="feature-single wow fadeInLeft animated" data-wow-delay="200ms">
-                        <div class="feature-icon">
-                            <img src="{{ url('home/assets/img/icon/feature/2.png') }}" alt="" >
-                        </div>
-                        <div class="feature-title">
-                            <h5>24/7 Services</h5>
-                        </div>
-                        <div class="feature-desc">
-                            <p>
-                                Shipments any day or time, even on weekends and holidays.
-                            </p>
-                        </div>
-                        <a href="services.html"><i class="las la-arrow-right"></i></a>
-                    </div>
-                    <div class="feature-single wow fadeInLeft animated" data-wow-delay="300ms">
-                        <div class="feature-icon">
-                            <img src="{{ url('home/assets/img/icon/feature/3.png') }}" alt="" >
-                        </div>
-                        <div class="feature-title">
-                            <h5>Flat Rate Fees</h5>
-                        </div>
-                        <div class="feature-desc">
-                            <p>
-                                Parcel Charge depends speedy delivery of flexible price.
-                            </p>
-                        </div>
-                        <a href="services.html"><i class="las la-arrow-right"></i></a>
-                    </div>
-                    <div class="feature-single wow fadeInLeft animated" data-wow-delay="400ms">
-                        <div class="feature-icon">
-                            <img src="{{ url('home/assets/img/icon/feature/4.png') }}" alt="" >
-                        </div>
-                        <div class="feature-title">
-                            <h5>Fast Delivery</h5>
-                        </div>
-                        <div class="feature-desc">
-                            <p>
-                                Specialty couriers are able to deliver items faster than other services.
-                            </p>
-                        </div>
-                        <a href="services.html"><i class="las la-arrow-right"></i></a>
-                    </div>
-                    <div class="feature-single wow fadeInLeft animated" data-wow-delay="500ms">
-                        <div class="feature-icon">
-                            <img src="{{ url('home/assets/img/icon/feature/5.png') }}" alt="" >
-                        </div>
-                        <div class="feature-title">
-                            <h5>Secured Service</h5>
-                        </div>
-                        <div class="feature-desc">
-                            <p>
-                                Specialty couriers provide the highest level of security and tracking for packages
-                            </p>
-                        </div>
-                        <a href="services.html"><i class="las la-arrow-right"></i></a>
-                    </div>
+            <div class="offset-xl-1 col-xl-5 col-lg-6 offset-lg-1">
+                <div class="feature-right-content">
+                    <p class="text-white">
+                        เราให้บริการจัดการขนส่งแบบครบวงจร ทั้งการกระจายพัสดุจากคลังสินค้าไปยังศูนย์กระจายสินค้า และการรับ-ส่งพัสดุโดยตรงจากผู้ขายถึงลูกค้า
+                    </p>
+                    <p class="text-white">
+                        กระบวนการจัดส่งพัสดุอาจแตกต่างกันไป ขึ้นอยู่กับผู้ให้บริการ สัญญาการขนส่ง ตำแหน่งที่ตั้ง และปัจจัยอื่นๆ ที่เกี่ยวข้อง
+                    </p>
                 </div>
             </div>
         </div>
 
+        <div class="feature-item-wrap">
+            <div class="feature-slider owl-carousel">
+                <div class="feature-single wow fadeInLeft animated" data-wow-delay="100ms">
+                    <div class="feature-icon">
+                        <img src="{{ url('home/assets/img/icon/feature/1.png') }}" alt="">
+                    </div>
+                    <div class="feature-title">
+                        <h5>Free Estimate</h5>
+                    </div>
+                    <div class="feature-desc">
+                        <p>บริการประเมินค่าขนส่งล่วงหน้าตามความต้องการของลูกค้า</p>
+                    </div>
+                    <a href="{{ url('/') }}"><i class="las la-arrow-right"></i></a>
+                </div>
+                <div class="feature-single wow fadeInLeft animated" data-wow-delay="200ms">
+                    <div class="feature-icon">
+                        <img src="{{ url('home/assets/img/icon/feature/2.png') }}" alt="">
+                    </div>
+                    <div class="feature-title">
+                        <h5>24/7 Services</h5>
+                    </div>
+                    <div class="feature-desc">
+                        <p>พร้อมจัดส่งพัสดุทุกวัน ทุกเวลา แม้วันหยุดสุดสัปดาห์และวันหยุดนักขัตฤกษ์</p>
+                    </div>
+                    <a href="{{ url('/') }}"><i class="las la-arrow-right"></i></a>
+                </div>
+                <div class="feature-single wow fadeInLeft animated" data-wow-delay="300ms">
+                    <div class="feature-icon">
+                        <img src="{{ url('home/assets/img/icon/feature/3.png') }}" alt="">
+                    </div>
+                    <div class="feature-title">
+                        <h5>Flat Rate Fees</h5>
+                    </div>
+                    <div class="feature-desc">
+                        <p>ค่าบริการขนส่งที่ยืดหยุ่น คุ้มค่า และตอบโจทย์ความเร็วในการจัดส่ง</p>
+                    </div>
+                    <a href="{{ url('/') }}"><i class="las la-arrow-right"></i></a>
+                </div>
+                <div class="feature-single wow fadeInLeft animated" data-wow-delay="400ms">
+                    <div class="feature-icon">
+                        <img src="{{ url('home/assets/img/icon/feature/4.png') }}" alt="">
+                    </div>
+                    <div class="feature-title">
+                        <h5>Fast Delivery</h5>
+                    </div>
+                    <div class="feature-desc">
+                        <p>บริการขนส่งด่วนพิเศษ จัดส่งรวดเร็วทันใจ กว่าบริการทั่วไป</p>
+                    </div>
+                    <a href="{{ url('/') }}"><i class="las la-arrow-right"></i></a>
+                </div>
+                <div class="feature-single wow fadeInLeft animated" data-wow-delay="500ms">
+                    <div class="feature-icon">
+                        <img src="{{ url('home/assets/img/icon/feature/5.png') }}" alt="">
+                    </div>
+                    <div class="feature-title">
+                        <h5>Secured Service</h5>
+                    </div>
+                    <div class="feature-desc">
+                        <p>บริการขนส่งที่ปลอดภัย พร้อมระบบติดตามสถานะพัสดุแบบเรียลไทม์</p>
+                    </div>
+                    <a href="{{ url('/') }}"><i class="las la-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
 
      <!-- Team Section-->
 
-    <div class="team-area gray-bg section-padding pb-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 ">
-                    <div class="section-title text-center">
-                        <p>Expert Proffessional</p>
-                        <h2>Meet Our <b>Dedicated</b> Team</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="justify-content: center;">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="single-team-member wow fadeInLeft" data-wow-delay="100ms">
-                        <div class="team-member-bg">
-                            <div class="team-content">
-                                <div class="team-title">
-                                    <a href="#">James Cameron</a>
-                                </div>
-                                <div class="team-subtitle">
-                                    <p>Manager</p>
-                                </div>
-                            </div>
-                            <div class="team-social">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="lab la-facebook" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-twitter" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-linkedin" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-instagram" aria-hidden="true"></i> </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="single-team-member wow fadeInRight" data-wow-delay="300ms">
-                        <div class="team-member-bg team-bg-3">
-                            <div class="team-content">
-                                <div class="team-title">
-                                    <a href="#">Josh Batlar</a>
-                                </div>
-                                <div class="team-subtitle">
-                                    <p>Sr. Executive</p>
-                                </div>
-                            </div>
-                            <div class="team-social">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="lab la-facebook" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-twitter" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-linkedin" aria-hidden="true"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="lab la-instagram" aria-hidden="true"></i> </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
 
 
 @endsection

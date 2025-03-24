@@ -31,7 +31,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
 Auth::routes();
+
+Route::get('/blog_detail/{id}', [App\Http\Controllers\HomeController::class, 'blog_detail']);
+
+Route::post('/api/add_contact', [App\Http\Controllers\HomeController::class, 'add_contact']);
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -41,7 +47,6 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 
 Route::get('/news', [App\Http\Controllers\HomeController::class, 'news'])->name('news');
 
-Route::get('/blog_detail', [App\Http\Controllers\HomeController::class, 'blog_detail'])->name('blog_detail');
 
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 

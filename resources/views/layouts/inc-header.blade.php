@@ -68,7 +68,7 @@
                             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                                 <ul class="navbar-nav m-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="{{ url('/') }}">หน้าแรก</a>
+                                        <a class="nav-link " href="{{ url('/') }}">หน้าแรก</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/about') }}">เกี่ยวกับเรา</a>
