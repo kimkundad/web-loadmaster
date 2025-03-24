@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-xl-6">
                                     <div>
-                                        <div class="g-recaptcha" data-sitekey="6LeoPP4qAAAAABlanxit_NWSnVJOdiNAkEJ-S3rF"></div>
+                                        <div class="g-recaptcha" data-sitekey="6LdQnlkUAAAAAOfsIz7o-U6JSgrSMseulLvu7lI8"></div>
                                     </div>
                                 </div>
                             </div>
