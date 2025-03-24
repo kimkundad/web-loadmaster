@@ -81,7 +81,8 @@ class HomeController extends Controller
           'data' => [
             'status' => 100,
             'msg' => 'This user was not verified by recaptcha_1.',
-            'data' => $response
+            'data' => $response,
+            'web' => $_SERVER["REMOTE_ADDR"]
           ]
         ]);
 
