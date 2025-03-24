@@ -125,7 +125,7 @@
 
 @section('scripts')
 
-<script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
+
 <script>
 
 

@@ -27,5 +27,7 @@
     <!-- Main JS -->
     <script src="{{ url('home/assets/js/main.js') }}"></script>
 
+    <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
+
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
