@@ -45,7 +45,7 @@
 
                             </div>
                             <div class="blog-desc">
-                                <p> {{ $item->sub_title }}</p>
+                                <p style="min-height: 68px; max-height: 75px; overflow: hidden;"> {{ $item->sub_title }}<</p>
                             </div>
                             <div class="blog-more">
                                 <a href="{{ url('blog_detail/'.$item->id) }}" class="main-btn border-btn">Read More <i class="las la-arrow-right"></i></a>
