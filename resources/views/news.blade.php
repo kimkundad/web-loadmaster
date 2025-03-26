@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <div class="blog-title">
-                                <h5>{{ $item->title }}</h5>
+                                <h5 style="height: 44px">{{ $item->title }}</h5>
                             </div>
                             <div class="blog-img-wrap">
                                 <div class="blog-img">
