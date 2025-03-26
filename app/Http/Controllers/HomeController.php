@@ -39,10 +39,16 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function news()
-    {
-        return view('news');
-    }
+
+    public function news(){
+
+
+        $objs = news::where('status', 1)->whereDate('startdate', '<=', date("Y-m-d"))->orderby('id', 'desc')->paginate(6);
+        $objs->setPath('');
+        $data['objs'] = $objs;
+
+        return view('news', compact('objs'));
+      }
 
     public function blog_detail($id){
 
